@@ -19,5 +19,8 @@
   "peerDependencies": {
     "@vuepress/plugin-register-components": "^1.0.0-alpha.0",
     "vuepress": "^1.0.0-alpha.24"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11"
   }
 }
