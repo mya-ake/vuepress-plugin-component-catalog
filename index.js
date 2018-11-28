@@ -3,8 +3,6 @@ const { buildPages } = require('./src');
 const { buildRegisterComponentsDir } = require('./src/build/components');
 
 module.exports = (options, ctx) => {
-  console.log('context', ctx.tempPath);
-  console.log('options', options);
   const { sourceDir } = ctx;
 
   const plugins = [];
