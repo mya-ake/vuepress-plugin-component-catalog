@@ -1,12 +1,17 @@
 {
   "name": "vuepress-plugin-component-catalog",
+  "description": "Generating a component catalog of Vue.js.",
   "version": "0.0.0",
   "main": "index.js",
   "repository": "https://github.com/mya-ake/vuepress-plugin-component-catalog.git",
+  "bugs": {
+    "url": "https://github.com/mya-ake/vuepress-plugin-component-catalog/issues"
+  },
   "author": "mya-ake <make.app.ts@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "release": "standard-version"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.1.1",
@@ -14,7 +19,8 @@
     "@vue/cli-service": "^3.1.4",
     "@vue/eslint-config-prettier": "^4.0.1",
     "babel-eslint": "^10.0.1",
-    "eslint": "^5.9.0"
+    "eslint": "^5.9.0",
+    "standard-version": "^4.4.0"
   },
   "peerDependencies": {
     "@vuepress/plugin-register-components": "^1.0.0-alpha.0",
@@ -25,5 +31,14 @@
     "lodash": "^4.17.11",
     "rimraf": "^2.6.2",
     "vue-template-compiler": "^2.5.17"
-  }
+  },
+  "files": [
+    "src"
+  ],
+  "keywords": [
+    "vue.js",
+    "vuepress",
+    "component",
+    "catalog"
+  ]
 }
