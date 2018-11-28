@@ -17,8 +17,11 @@ const buildComponentContext = ({ dirPathname, dirName }) => {
     const name = filename.split('.').shift();
     return {
       name,
+      filename,
       filePathname: pathname,
       link: path.join('components', dirName, camelToHyphen(name)),
+      existDoc: false,
+      docPathname: null,
     };
   });
 };

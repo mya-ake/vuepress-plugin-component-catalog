@@ -1,21 +1,3 @@
-<!-- prettier-ignore -->
-<docs>
-  # BaseButton [[toc]] ## About ボタンのコンポーネント ## Variation ### default
-  ```HTML
-  <base-button>Default Button</base-button>
-  ```
-
-  <base-button>Default Button</base-button>
-
-  ### primary
-
-  ```HTML
-  <base-button variation="primary">Primary Button</base-button>
-  ```
-
-  <base-button variation="primary">Primary Button</base-button>
-</docs>
-
 <template>
   <button
     :type="type"

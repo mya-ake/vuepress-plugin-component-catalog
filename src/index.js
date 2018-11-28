@@ -1,24 +1,29 @@
 const path = require('path');
+
 const { buildComponentsContext } = require('./build/components');
-const { buildComponentList } = require('./build/markdown');
-const { readFile, writeFile } = require('./utils/file');
+const { createIndex, createDocs } = require('./build/markdown');
+const { buildDcosPage } = require('./build/page');
+const { removeDir } = require('./utils/file');
 
 const buildPages = ({ componentsDir, configDir }) => {
-  // const componentPathnames = getComponents(componentsDir);
   const componentsContext = buildComponentsContext(componentsDir);
   const catalogDir = path.join(configDir, '__catalog__');
+  removeDir(catalogDir);
 
-  let indexContent = readFile(path.resolve(__dirname, 'templates/index.md'));
-  indexContent += '\n' + buildComponentList({ componentsContext });
-  const indexPathname = path.join(catalogDir, 'index.md');
+  createDocs({ catalogDir, componentsContext });
 
-  writeFile(indexPathname, indexContent);
+  const indexPathname = createIndex({
+    catalogDir,
+    templatePathname: path.resolve(__dirname, 'templates/index.md'),
+    componentsContext,
+  });
 
   const pages = [
     {
       path: '/components/',
       filePath: indexPathname,
     },
+    ...buildDcosPage({ componentsContext }),
   ];
 
   return pages;

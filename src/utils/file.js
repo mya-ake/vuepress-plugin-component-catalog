@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const rimraf = require('rimraf');
 
 const existPathname = pathname => {
   try {
@@ -64,10 +65,15 @@ const extractFileName = pathname => {
   return pathname.split('/').pop();
 };
 
+const removeDir = pathname => {
+  return rimraf.sync(pathname);
+};
+
 module.exports = {
   getDirPathnames,
   getFilePathnames,
   readFile,
   writeFile,
   extractFileName,
+  removeDir,
 };
