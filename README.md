@@ -19,7 +19,7 @@ $ yarn add -D vuepress@next vuepress-plugin-component-catalog
 
 ```JavaScript
 module.exports = {
-  // ..
+  // ...
   plugins: [
     [
       'vuepress-plugin-component-catalog',
@@ -32,6 +32,39 @@ module.exports = {
 
 ```
 
+## Docs block
+
+This plugin uses custom blocks of SFC.
+
+### example
+
+```HTML
+<docs>
+# Base Button
+
+Can be written with Markdown.
+
+VuePress markdown extensions are also available.
+
+[[toc]]
+
+When you write a component, it will be mounted and displayed.
+
+<base-button>Smaple Button</base-button>
+
+<docs>
+
+<template>
+  <button type="button"><slot /></button>
+</template>
+
+<script>
+export default {
+  // ...
+}
+</script>
+```
+
 ## Example
 
-See example directory.
+See [example](https://github.com/mya-ake/vuepress-plugin-component-catalog/tree/master/example) directory.
