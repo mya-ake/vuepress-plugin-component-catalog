@@ -1,7 +1,6 @@
 const path = require('path');
 
-const ROOT_DIR = path.resolve(__dirname, '..', '..', '..');
-const PROJECT_DIR = path.join(ROOT_DIR, 'example')
+const PROJECT_DIR = path.join(__dirname, '..', '..')
 const COMPONENTS_DIR = path.join(PROJECT_DIR, 'src', 'components');
 
 module.exports = {
@@ -15,7 +14,7 @@ module.exports = {
 
   plugins: [
     [
-      require(`${ROOT_DIR}/index.js`),
+      'vuepress-plugin-component-catalog',
       {
         componentsDir: COMPONENTS_DIR,
       },
