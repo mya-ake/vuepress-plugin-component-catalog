@@ -10,12 +10,3 @@ All notable changes to this project will be documented in this file. See [standa
 
 * Create protptype ([#8](https://github.com/mya-ake/vuepress-plugin-component-catalog/issues/8)) ([ada3d6f](https://github.com/mya-ake/vuepress-plugin-component-catalog/commit/ada3d6f))
 
-
-
-<a name="0.1.0"></a>
-# 0.1.0 (2018-11-28)
-
-
-### Features
-
-* Create protptype ([#8](https://github.com/mya-ake/vuepress-plugin-component-catalog/issues/8)) ([ada3d6f](https://github.com/mya-ake/vuepress-plugin-component-catalog/commit/ada3d6f))
