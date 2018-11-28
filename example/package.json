@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "doc:dev": "vuepress dev docs"
+    "doc:dev": "vuepress dev docs",
+    "doc:build": "vuepress build docs"
   },
   "dependencies": {
     "vue": "^2.5.17",
