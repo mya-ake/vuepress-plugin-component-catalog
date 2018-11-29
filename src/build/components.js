@@ -3,6 +3,7 @@ const {
   getFilePathnames,
   getDirPathnames,
   extractFileName,
+  extractExtension,
 } = require('./../utils/file');
 const { camelToHyphen } = require('./../utils/common');
 
@@ -10,9 +11,13 @@ const buildRegisterComponentsDir = dirPathname => {
   return [dirPathname, ...getDirPathnames(dirPathname)];
 };
 
+const isVueFile = pathname => {
+  return extractExtension(pathname) === 'vue';
+};
+
 const buildComponentContext = ({ dirPathname, dirName }) => {
   const pathnames = getFilePathnames(dirPathname, { deep: false });
-  return pathnames.map(pathname => {
+  return pathnames.filter(isVueFile).map(pathname => {
     const filename = extractFileName(pathname);
     const name = filename.split('.').shift();
     return {

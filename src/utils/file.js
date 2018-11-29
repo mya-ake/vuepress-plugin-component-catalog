@@ -65,6 +65,10 @@ const extractFileName = pathname => {
   return pathname.split('/').pop();
 };
 
+const extractExtension = pathname => {
+  return pathname.split('.').pop();
+};
+
 const removeDir = pathname => {
   return rimraf.sync(pathname);
 };
@@ -75,5 +79,6 @@ module.exports = {
   readFile,
   writeFile,
   extractFileName,
+  extractExtension,
   removeDir,
 };
