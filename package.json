@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@vue/component-compiler-utils": "^2.3.0",
+    "consola": "^2.3.0",
     "lodash": "^4.17.11",
     "rimraf": "^2.6.2",
     "vue-template-compiler": "^2.5.17"
