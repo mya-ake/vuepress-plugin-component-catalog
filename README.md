@@ -13,7 +13,7 @@ This plugin is for [VuePress Next(v1.x.x)](https://github.com/vuejs/vuepress).
 $ yarn add -D vuepress@next vuepress-plugin-component-catalog
 ```
 
-## Setting
+## Set up
 
 ### .vuepress/config.js
 
@@ -29,8 +29,52 @@ module.exports = {
     ],
   ],
 };
-
 ```
+
+### webpack config
+
+It is not possible to process `docs` custom blocks, and errors may occur in the build of your application.
+
+Please load and use the prepared webpack loader.
+Here is a sample.
+
+#### Vue CLI v3
+
+vue.config.js
+
+```JavaScript
+module.exports = {
+  // ...
+  chainWebpack: config => {
+    config.module
+      .rule('docs')
+      .oneOf('docs')
+      .resourceQuery(/blockType=docs/)
+      .use('through-loader')
+      .loader('vuepress-plugin-component-catalog/src/through-loader')
+      .end();
+  },
+};
+```
+
+#### Nuxt.js
+
+nuxt.config.js
+
+```JavaScript
+module.exports = {
+  // ...
+  build: {
+    extend(config) {
+      config.module.rules.push({
+        resourceQuery: /blockType=docs/,
+        loader: 'vuepress-plugin-component-catalog/src/through-loader',
+      });
+    },
+  },
+};
+```
+
 
 ## Docs block
 
