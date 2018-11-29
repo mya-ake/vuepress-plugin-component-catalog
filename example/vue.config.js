@@ -5,7 +5,7 @@ module.exports = {
       .oneOf('docs')
       .resourceQuery(/blockType=docs/)
       .use('through-loader')
-      .loader(require.resolve('./loaders/through-loader.js'))
+      .loader('vuepress-plugin-component-catalog/src/through-loader')
       .end();
   },
 };
