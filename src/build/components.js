@@ -33,13 +33,17 @@ const buildComponentContext = ({ dirPathname, dirName }) => {
 
 const buildComponentsContext = dirPathname => {
   const dirs = buildRegisterComponentsDir(dirPathname);
-  return dirs.map(dir => {
-    const dirName = dir.replace(dirPathname, '');
-    return {
-      dirName,
-      components: buildComponentContext({ dirPathname: dir, dirName }),
-    };
-  });
+  return dirs
+    .map(dir => {
+      const dirName = dir.replace(dirPathname, '');
+      return {
+        dirName,
+        components: buildComponentContext({ dirPathname: dir, dirName }),
+      };
+    })
+    .filter(context => {
+      return context.components.length > 0;
+    });
 };
 
 module.exports = {
