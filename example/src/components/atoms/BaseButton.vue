@@ -1,29 +1,31 @@
 <!-- prettier-ignore -->
 <docs>
-  # BaseButton
+# BaseButton
 
-  [[toc]]
+[[toc]]
 
-  ## About
+## About
 
-  ボタンのコンポーネント
+`button` tag component
 
-  ## Variation
+## Example & Variation
 
-  ### default
-  ```HTML
-  <base-button>Default Button</base-button>
-  ```
+### default
 
-  <base-button>Default Button</base-button>
+```HTML
+<BaseButton>Default Button</BaseButton>
+```
 
-  ### primary
+<BaseButton>Default Button</BaseButton>
 
-  ```HTML
-  <base-button variation="primary">Primary Button</base-button>
-  ```
+### primary
 
-  <base-button variation="primary">Primary Button</base-button>
+```HTML
+<BaseButton variation="primary">Primary Button</BaseButton>
+```
+
+<BaseButton variation="primary">Primary Button</BaseButton>
+
 </docs>
 
 <template>
@@ -64,14 +66,14 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .base-button {
-  border: solid 1px #333;
+  border: solid 1px $color-text;
   border-radius: 3px;
   padding: 8px 16px 9px;
   font-size: 1rem;
   font-weight: 600;
-  color: #333;
+  color: $color-text;
   cursor: pointer;
 }
 
@@ -79,10 +81,8 @@ export default {
 }
 
 .base-button--primary {
-  --c-vue: #3eaf7c;
-
   color: #fff;
-  background-color: var(--c-vue);
-  border-color: var(--c-vue);
+  background-color: $color-vue;
+  border-color: $color-vue;
 }
 </style>
