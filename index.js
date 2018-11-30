@@ -9,7 +9,7 @@ module.exports = (options, ctx) => {
   const { sourceDir } = ctx;
 
   const plugins = [];
-  const { componentsDir } = options;
+  const { componentsDir, alias = {} } = options;
   if (typeof componentsDir === 'string') {
     plugins.push([
       '@vuepress/register-components',
@@ -37,6 +37,11 @@ module.exports = (options, ctx) => {
         .use('through-loader')
         .loader(require.resolve('./src/through-loader.js'))
         .end();
+
+      // sets alias
+      Object.entries(alias).forEach(([key, value]) => {
+        config.resolve.alias.set(key, value);
+      });
     },
   };
 };
