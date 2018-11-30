@@ -24,7 +24,10 @@ module.exports = {
     [
       'vuepress-plugin-component-catalog',
       {
-        componentsDir: <your component directory>,
+        componentsDir: <your component directory>,  // require
+        alias: {  // option
+          '@': '<your alias>',
+        },
       },
     ],
   ],
