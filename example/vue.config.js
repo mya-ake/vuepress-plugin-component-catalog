@@ -1,4 +1,21 @@
+const path = require('path');
+
+const SRC_DIR = path.resolve(__dirname, 'src');
+const SCSS_DIR = path.join(SRC_DIR, 'assets', 'scss');
+
+const AUTO_IMPORT_SASS = `
+@import "${path.join(SCSS_DIR, '_variables.scss')}";
+`;
+
 module.exports = {
+  css: {
+    loaderOptions: {
+      sass: {
+        data: AUTO_IMPORT_SASS,
+      },
+    },
+  },
+
   chainWebpack: config => {
     config.module
       .rule('docs')

@@ -1,14 +1,21 @@
 <template>
-  <div class="home"><BaseButton>Test</BaseButton></div>
+  <div class="home"><SearchForm @submit="handleSubmit" /></div>
 </template>
 
 <script>
-import BaseButton from '@/components/BaseButton.vue';
+import { SearchForm } from '@/components/organisms';
 
 export default {
   name: 'Home',
+
   components: {
-    BaseButton,
+    SearchForm,
+  },
+
+  methods: {
+    handleSubmit(value) {
+      console.log(value);
+    },
   },
 };
 </script>

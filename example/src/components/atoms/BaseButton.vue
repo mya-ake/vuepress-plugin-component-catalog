@@ -6,7 +6,7 @@
 
   ## About
 
-  ボタンのコンポーネント
+  Button component
 
   ## Variation
 
@@ -64,14 +64,14 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .base-button {
-  border: solid 1px #333;
+  border: solid 1px $color-text;
   border-radius: 3px;
   padding: 8px 16px 9px;
   font-size: 1rem;
   font-weight: 600;
-  color: #333;
+  color: $color-text;
   cursor: pointer;
 }
 
@@ -79,10 +79,8 @@ export default {
 }
 
 .base-button--primary {
-  --c-vue: #3eaf7c;
-
   color: #fff;
-  background-color: var(--c-vue);
-  border-color: var(--c-vue);
+  background-color: $color-vue;
+  border-color: $color-vue;
 }
 </style>
