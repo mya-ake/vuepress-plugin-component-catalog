@@ -1,3 +1,22 @@
+<docs>
+# BaseLabel
+
+[[toc]]
+
+## About
+
+`label` tag component
+
+## Example
+
+```HTML
+<BaseLabel>Label</BaseLabel>
+```
+
+<BaseLabel>Label</BaseLabel>
+
+</docs>
+
 <template functional>
   <label v-bind="data.attrs" :class="data.staticClass" class="base-label"
     ><slot

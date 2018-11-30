@@ -1,5 +1,3 @@
-# Example
+# Vue CLI v3 example
 
-<base-button>Test</base-button>
-
-<atom-base-button>Atom</atom-base-button>
+Link: [Components](/components/)

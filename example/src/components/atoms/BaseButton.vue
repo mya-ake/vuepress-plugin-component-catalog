@@ -1,29 +1,31 @@
 <!-- prettier-ignore -->
 <docs>
-  # BaseButton
+# BaseButton
 
-  [[toc]]
+[[toc]]
 
-  ## About
+## About
 
-  Button component
+`button` tag component
 
-  ## Variation
+## Example & Variation
 
-  ### default
-  ```HTML
-  <base-button>Default Button</base-button>
-  ```
+### default
 
-  <base-button>Default Button</base-button>
+```HTML
+<BaseButton>Default Button</BaseButton>
+```
 
-  ### primary
+<BaseButton>Default Button</BaseButton>
 
-  ```HTML
-  <base-button variation="primary">Primary Button</base-button>
-  ```
+### primary
 
-  <base-button variation="primary">Primary Button</base-button>
+```HTML
+<BaseButton variation="primary">Primary Button</BaseButton>
+```
+
+<BaseButton variation="primary">Primary Button</BaseButton>
+
 </docs>
 
 <template>

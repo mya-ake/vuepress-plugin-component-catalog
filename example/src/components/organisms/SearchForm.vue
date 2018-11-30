@@ -1,3 +1,22 @@
+<docs>
+# SearchForm
+
+[[toc]]
+
+## About
+
+In-site search component
+
+## Example
+
+```HTML
+<SearchForm @submit="handleSubmit" />
+```
+
+<SearchForm/>
+
+</docs>
+
 <template>
   <form class="search-form" @submit.prevent="handleSubmit">
     <FormItem v-model="value" type="search" class="item"

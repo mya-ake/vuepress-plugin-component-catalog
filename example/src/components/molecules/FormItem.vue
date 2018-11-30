@@ -1,3 +1,22 @@
+<docs>
+# FormItem
+
+[[toc]]
+
+## About
+
+Form item
+
+## Example
+
+```HTML
+<FormItem v-model="value">Text</FormItem>
+```
+
+<FormItem value="">Text</FormItem>
+
+</docs>
+
 <template>
   <div class="form-item">
     <BaseLabel :for="id" class="label" v-bind="{ [$options._scopeId]: '' }"

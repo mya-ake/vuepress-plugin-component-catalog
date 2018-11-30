@@ -1,3 +1,22 @@
+<docs>
+# BaseInput
+
+[[toc]]
+
+## About
+
+`input` tag component
+
+## Example
+
+```HTML
+<BaseInput type="text" />
+```
+
+<BaseInput type="text" />
+
+</docs>
+
 <template>
   <input v-model="model" :type="type" class="base-input" />
 </template>
