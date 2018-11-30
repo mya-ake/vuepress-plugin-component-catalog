@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/mya-ake/vuepress-plugin-component-catalog/compare/v0.2.2...v0.3.0) (2018-11-30)
+
+
+### Bug Fixes
+
+* Fix not to display directories without components ([99e3465](https://github.com/mya-ake/vuepress-plugin-component-catalog/commit/99e3465))
+
+
+### Features
+
+* Supports alias ([#18](https://github.com/mya-ake/vuepress-plugin-component-catalog/issues/18)) ([51a3836](https://github.com/mya-ake/vuepress-plugin-component-catalog/commit/51a3836)), closes [#10](https://github.com/mya-ake/vuepress-plugin-component-catalog/issues/10) [#16](https://github.com/mya-ake/vuepress-plugin-component-catalog/issues/16)
+
+
+
 <a name="0.2.2"></a>
 ## [0.2.2](https://github.com/mya-ake/vuepress-plugin-component-catalog/compare/v0.2.1...v0.2.2) (2018-11-29)
 
