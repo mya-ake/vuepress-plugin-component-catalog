@@ -2112,7 +2112,7 @@ check-types@^7.3.0:
   resolved "https://registry.yarnpkg.com/check-types/-/check-types-7.4.0.tgz#0378ec1b9616ec71f774931a3c6516fad8c152f4"
   integrity sha512-YbulWHdfP99UfZ73NcUDlNJhEIDgm9Doq9GhpyXbF+7Aegi3CVV7qqMCKTTqJxlvEvnQBp9IA+dxsGN6xK/nSg==
 
-chokidar@^2.0.0, chokidar@^2.0.2, chokidar@^2.0.3:
+chokidar@^2.0.0, chokidar@^2.0.2, chokidar@^2.0.3, chokidar@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-2.0.4.tgz#356ff4e2b0e8e43e322d18a372460bbcf3accd26"
   integrity sha512-z9n7yt9rOvIJrMhvDtDictKrkFHeihkNl6uWMmZlmL6tJtX9Cs+87oK+teBx+JIgzvbX3yZHT3eF8vpbDxHJXQ==
@@ -9787,12 +9787,13 @@ vuepress-html-webpack-plugin@^3.2.0:
     toposort "^1.0.0"
     util.promisify "1.0.0"
 
-vuepress-plugin-component-catalog@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/vuepress-plugin-component-catalog/-/vuepress-plugin-component-catalog-0.3.0.tgz#0fbbbd618f499becd0bf6a5a49cc1493f3c354d6"
-  integrity sha512-Ux673sjSuScJZsVJm7M5VgPvKCu5kaafUX0ECeNpU302wAWdE0tnNKT3lev68//588HcVzn//3dlWAImefsiPA==
+vuepress-plugin-component-catalog@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-component-catalog/-/vuepress-plugin-component-catalog-0.4.0.tgz#efd3a3cef010c1b4bbd226ffd11f915b134c3ffd"
+  integrity sha512-reSDcN71j9eKag1NyS7KbuvKAX9wtTNk1Q7h3vEweFdPOdaGqDCOVdi7F7xTgcJPRTRSRB4kA/wixCFeR0BYMQ==
   dependencies:
     "@vue/component-compiler-utils" "^2.3.0"
+    chokidar "^2.0.4"
     consola "^2.3.0"
     lodash "^4.17.11"
     rimraf "^2.6.2"
