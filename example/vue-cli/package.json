@@ -27,6 +27,6 @@
     "sass-loader": "^7.0.1",
     "vue-template-compiler": "^2.5.17",
     "vuepress": "^1.0.0-alpha.24",
-    "vuepress-plugin-component-catalog": "^0.2.0"
+    "vuepress-plugin-component-catalog": "^0.3.0"
   }
 }
