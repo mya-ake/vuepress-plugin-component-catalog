@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.0"></a>
+# [0.4.0](https://github.com/mya-ake/vuepress-plugin-component-catalog/compare/v0.3.0...v0.4.0) (2018-12-01)
+
+
+### Features
+
+* Support hot reload ([#21](https://github.com/mya-ake/vuepress-plugin-component-catalog/issues/21)) ([46571e4](https://github.com/mya-ake/vuepress-plugin-component-catalog/commit/46571e4)), closes [#13](https://github.com/mya-ake/vuepress-plugin-component-catalog/issues/13)
+
+
+
 <a name="0.3.0"></a>
 # [0.3.0](https://github.com/mya-ake/vuepress-plugin-component-catalog/compare/v0.2.2...v0.3.0) (2018-11-30)
 

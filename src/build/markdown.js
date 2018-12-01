@@ -36,6 +36,12 @@ const createIndex = ({ catalogDir, templatePathname, componentsContext }) => {
   return indexPathname;
 };
 
+const createIndex2 = ({ templatePathname, componentsContext }) => {
+  let indexContent = readFile(templatePathname);
+  indexContent += '\n' + buildComponentList({ componentsContext });
+  return indexContent;
+};
+
 /** docs */
 const extractDocs = customBlocks => {
   return customBlocks.find(block => block.type === 'docs');
@@ -62,7 +68,24 @@ const createDocs = ({ catalogDir, componentsContext }) => {
   });
 };
 
+const createDocContent = context => {
+  const source = readFile(context.filePathname);
+  const descriptor = parse({
+    source,
+    compiler,
+    filename: context.filename,
+  });
+  const docsBlock = extractDocs(descriptor.customBlocks);
+  if (typeof docsBlock === 'undefined') {
+    return null;
+  }
+  context.existDoc = true;
+  return docsBlock.content;
+};
+
 module.exports = {
   createIndex,
+  createIndex2,
   createDocs,
+  createDocContent,
 };
