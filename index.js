@@ -6,6 +6,7 @@ const { NAME } = require('./src/constants');
 const logger = require('./src/utils/logger');
 
 module.exports = (options, ctx) => {
+  console.log(process.env);
   const { sourceDir } = ctx;
 
   const plugins = [];

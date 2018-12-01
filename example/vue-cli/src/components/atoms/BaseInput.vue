@@ -10,10 +10,10 @@
 ## Example
 
 ```HTML
-<BaseInput type="text" />
+<BaseInput v-model="value" type="text" />
 ```
 
-<BaseInput type="text" />
+<BaseInput value="" type="text" />
 
 </docs>
 
