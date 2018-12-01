@@ -24,6 +24,10 @@ const buildComponentContext = ({ dirPathname, dirName }) => {
       name,
       filename,
       filePathname: pathname,
+      relativeFilePathname: path.join(
+        dirName,
+        pathname.replace(dirPathname, ''),
+      ),
       link: path.join('components', dirName, camelToHyphen(name)),
       existDoc: false,
       docPathname: null,
