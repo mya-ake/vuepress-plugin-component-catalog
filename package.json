@@ -11,16 +11,24 @@
   "license": "MIT",
   "scripts": {
     "lint": "vue-cli-service lint",
+    "compile": "tsc",
+    "clean": "rimraf dist",
     "release": "standard-version"
   },
   "devDependencies": {
+    "@types/node": "^10.12.11",
     "@vue/cli-plugin-babel": "^3.1.1",
     "@vue/cli-plugin-eslint": "^3.1.5",
     "@vue/cli-service": "^3.1.4",
     "@vue/eslint-config-prettier": "^4.0.1",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.9.0",
-    "standard-version": "^4.4.0"
+    "standard-version": "^4.4.0",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-config-standard": "^8.0.1",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^3.2.1"
   },
   "peerDependencies": {
     "@vuepress/plugin-register-components": "^1.0.0-alpha.0",

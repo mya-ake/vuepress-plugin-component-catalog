@@ -23,8 +23,8 @@ module.exports = {
 
   plugins: [
     [
-      'vuepress-plugin-component-catalog',
-      // require(path.resolve(PROJECT_DIR, '..', '..', 'index.js')),
+      // 'vuepress-plugin-component-catalog',
+      require(path.resolve(PROJECT_DIR, '..', '..', 'index.js')),
       {
         componentsDir: COMPONENTS_DIR,
         alias: {
