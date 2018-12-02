@@ -13,9 +13,12 @@
     "lint": "vue-cli-service lint",
     "compile": "tsc",
     "clean": "rimraf dist",
+    "test:unit": "jest --config jest.config.js",
+    "test:unit:watch": "jest --config jest.config.js --watch",
     "release": "standard-version"
   },
   "devDependencies": {
+    "@types/jest": "^23.3.10",
     "@types/node": "^10.12.11",
     "@vue/cli-plugin-babel": "^3.1.1",
     "@vue/cli-plugin-eslint": "^3.1.5",
@@ -23,7 +26,9 @@
     "@vue/eslint-config-prettier": "^4.0.1",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.9.0",
+    "jest": "^23.6.0",
     "standard-version": "^4.4.0",
+    "ts-jest": "^23.10.5",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.17.0",
     "tslint-config-standard": "^8.0.1",

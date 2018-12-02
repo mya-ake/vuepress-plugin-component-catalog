@@ -2,6 +2,6 @@ import { StringMap } from './common.interface';
 
 export interface CatalogOptions {
   componentsDir?: string;
-  componentDirName?: string;
+  distDirPrefix?: string;
   alias?: StringMap;
 }

@@ -13,8 +13,8 @@
     "noImplicitThis": false,
     "noImplicitAny": false,
     "baseUrl": ".",
-    "types": ["node"],
-    "lib": ["es5"]
+    "types": ["node", "jest"],
+    "lib": ["es5", "es6", "es2015.collection"]
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
