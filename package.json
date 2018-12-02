@@ -2,7 +2,7 @@
   "name": "vuepress-plugin-component-catalog",
   "description": "Generating a component catalog of Vue.js.",
   "version": "0.4.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "repository": "https://github.com/mya-ake/vuepress-plugin-component-catalog.git",
   "bugs": {
     "url": "https://github.com/mya-ake/vuepress-plugin-component-catalog/issues"
@@ -43,6 +43,7 @@
     "vue-template-compiler": "^2.5.17"
   },
   "files": [
+    "dist",
     "src"
   ],
   "keywords": [
