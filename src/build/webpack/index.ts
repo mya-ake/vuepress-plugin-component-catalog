@@ -1,9 +1,13 @@
 import path from 'path';
 
 import buildVueCliWebpackConfig from './vue-cli';
-import { ProjectEnviromentContext } from './../../types';
+import { ProjectEnviromentContext, CatalogOptions } from './../../types';
 
-export default (config: any, environment: ProjectEnviromentContext) => {
+export default (
+  config: any,
+  options: CatalogOptions,
+  environment: ProjectEnviromentContext,
+) => {
   // Ignore docs blocks when building VuePress
   const loaderPath = path.resolve(__dirname, '..', '..', 'through-loader.js');
   config.module
@@ -13,6 +17,12 @@ export default (config: any, environment: ProjectEnviromentContext) => {
     .use('through-loader')
     .loader(require.resolve(loaderPath))
     .end();
+
+  // sets alias
+  const alias = options.alias || {};
+  Object.entries(alias).forEach(([key, value]) => {
+    config.resolve.alias.set(key, value);
+  });
 
   // Setting for each environment
   if (environment.vueCLI) {

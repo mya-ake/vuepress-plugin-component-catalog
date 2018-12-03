@@ -1,5 +1,3 @@
-import path from 'path';
-
 import { NAME } from './constants';
 import { scanProject } from './core';
 import {
@@ -14,16 +12,22 @@ import logger from './utils/logger';
 import { CatalogOptions, VuePressOpenContext } from './types';
 
 module.exports = (options: CatalogOptions, ctx: VuePressOpenContext) => {
-  const environment = scanProject(process.env.PWD);
-
-  const componentsDir = options.componentsDir || process.env.PWD;
-  if (typeof componentsDir !== 'string') {
-    logger.error(new Error('Require componentsDir option'));
+  const rootDir = options.distDirPrefix || process.env.PWD;
+  if (typeof rootDir !== 'string') {
+    logger.error(
+      new Error(
+        'Please set rootDir option. Because Automatic project scan failed.',
+      ),
+    );
     process.exit(1);
   }
 
+  const environment = scanProject(rootDir);
+
   const dirContext = buildDirContext({
-    componentsDir: componentsDir as string,
+    rootDir: rootDir as string,
+    include: options.include,
+    exclude: options.exclude,
     distDirPrefix: options.distDirPrefix,
     ctx,
   });
@@ -34,10 +38,10 @@ module.exports = (options: CatalogOptions, ctx: VuePressOpenContext) => {
 
   return {
     name: NAME,
-    plugins: buildPlugins(componentsDir as string),
+    plugins: buildPlugins({ dirContext }),
     chainWebpack: config => {
-      buildWebpackConfig(config, environment);
+      buildWebpackConfig(config, options, environment);
     },
-    additionalPages: buildPages({ componentContextMap }),
+    additionalPages: buildPages({ dirContext, componentContextMap }),
   };
 };

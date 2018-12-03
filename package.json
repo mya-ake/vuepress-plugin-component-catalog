@@ -43,7 +43,7 @@
     "@vue/component-compiler-utils": "^2.3.0",
     "chokidar": "^2.0.4",
     "consola": "^2.3.0",
-    "lodash": "^4.17.11",
+    "minimatch": "^3.0.4",
     "rimraf": "^2.6.2",
     "vue-template-compiler": "^2.5.17"
   },

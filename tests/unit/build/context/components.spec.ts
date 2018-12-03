@@ -6,7 +6,7 @@ import {
 describe('build/context/components', () => {
   describe('divideByDirectory function', () => {
     it('divided', () => {
-      const componentsDir = '/project/components';
+      const rootDir = '/project/components';
       const filePathnames = [
         '/project/components/Component1.vue',
         '/project/components/atoms/Component2.vue',
@@ -15,7 +15,7 @@ describe('build/context/components', () => {
       ];
 
       const dividedPathnames = divideByDirectory({
-        componentsDir,
+        rootDir,
         filePathnames,
       });
 

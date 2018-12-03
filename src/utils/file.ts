@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import minimatch from 'minimatch';
 
 export const existPathname = (pathname: string): boolean => {
   try {
@@ -23,6 +24,18 @@ const ensureWriteProcess = (pathname: string) => {
   createDir(fileDirname);
 };
 
+export const isMatchPathname = (pathname: string, globs: string[]): boolean => {
+  if (globs.length === 0) {
+    return false;
+  }
+  for (const glob of globs) {
+    if (minimatch(pathname, glob)) {
+      return true;
+    }
+  }
+  return false;
+};
+
 export const writeFile = (pathname: string, data: string) => {
   ensureWriteProcess(pathname);
   fs.writeFileSync(pathname, data, { encoding: 'utf-8' });
@@ -32,41 +45,67 @@ export const readFile = (pathname: string): string => {
   return fs.readFileSync(pathname, { encoding: 'utf-8' });
 };
 
-export const getDirPathnames = (dirPathname: string): string[] => {
-  const pathnames = fs.readdirSync(dirPathname);
-  return pathnames.reduce(
-    (newPathnames, pathname) => {
-      const absoluteFilePath = path.join(dirPathname, pathname);
-      if (fs.statSync(absoluteFilePath).isDirectory()) {
-        newPathnames.push(absoluteFilePath);
-        return newPathnames.concat(getDirPathnames(absoluteFilePath));
-      } else {
-        return newPathnames;
-      }
-    },
-    [] as string[],
-  );
+export const getDirPathnames = (
+  dirPathname: string,
+  option: { deep?: boolean; include?: string[]; exclude?: string[] } = {},
+): string[] => {
+  const { deep = true, include = [], exclude = [] } = option;
+  return fs
+    .readdirSync(dirPathname)
+    .filter(
+      pathname => exclude.length === 0 || !isMatchPathname(pathname, exclude),
+    )
+    .filter(
+      pathname => include.length === 0 || isMatchPathname(pathname, include),
+    )
+    .reduce(
+      (newPathnames, pathname) => {
+        const absoluteFilePath = path.join(dirPathname, pathname);
+        if (fs.statSync(absoluteFilePath).isDirectory()) {
+          newPathnames.push(absoluteFilePath);
+          if (deep) {
+            return newPathnames.concat(
+              getDirPathnames(absoluteFilePath, option),
+            );
+          }
+          return newPathnames;
+        } else {
+          return newPathnames;
+        }
+      },
+      [] as string[],
+    );
 };
 
 export const getFilePathnames = (
   dirPathname: string,
-  { deep = true } = {},
+  option: { deep?: boolean; include?: string[]; exclude?: string[] } = {},
 ): string[] => {
-  const pathnames = fs.readdirSync(dirPathname);
-  return pathnames.reduce(
-    (newPathnames, pathname) => {
-      const absoluteFilePath = path.join(dirPathname, pathname);
-      if (fs.statSync(absoluteFilePath).isDirectory()) {
-        if (deep) {
-          return newPathnames.concat(getFilePathnames(absoluteFilePath));
+  const { deep = true, include = [], exclude = [] } = option;
+  return fs
+    .readdirSync(dirPathname)
+    .filter(
+      pathname => exclude.length === 0 || !isMatchPathname(pathname, exclude),
+    )
+    .filter(
+      pathname => include.length === 0 || isMatchPathname(pathname, include),
+    )
+    .reduce(
+      (newPathnames, pathname) => {
+        const absoluteFilePath = path.join(dirPathname, pathname);
+        if (fs.statSync(absoluteFilePath).isDirectory()) {
+          if (deep) {
+            return newPathnames.concat(
+              getFilePathnames(absoluteFilePath, option),
+            );
+          }
+          return newPathnames;
+        } else {
+          return newPathnames.concat(absoluteFilePath);
         }
-        return newPathnames;
-      } else {
-        return newPathnames.concat(absoluteFilePath);
-      }
-    },
-    [] as string[],
-  );
+      },
+      [] as string[],
+    );
 };
 
 export const extractFileName = (pathname: string): string | null => {

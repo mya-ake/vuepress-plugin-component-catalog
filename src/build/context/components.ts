@@ -19,21 +19,21 @@ const isVueFile = (pathname: string): boolean => {
 
 export const divideByDirectory = ({
   filePathnames,
-  componentsDir,
+  rootDir,
 }: {
   filePathnames: string[];
-  componentsDir: string;
+  rootDir: string;
 }): Map<string, ComponentFileContext[]> => {
   const map = new Map();
   filePathnames
     .map(pathname => {
-      const relativePathname = pathname.replace(componentsDir, '');
+      const relativePathname = pathname.replace(rootDir, '');
       const fileName = extractFileName(relativePathname) as string;
       const dirName = relativePathname.replace(fileName, '');
       const name = fileName.split('.').shift();
       return {
         absolutePathname: pathname,
-        relativePathname: pathname.replace(componentsDir, ''),
+        relativePathname: pathname.replace(rootDir, ''),
         dirName,
         fileName,
         name,
@@ -69,12 +69,15 @@ export default ({
 }: {
   dirContext: DirContext;
 }): Map<string, ComponentContext[]> => {
-  const { componentsDir } = dirContext;
-  const vueFilePathnames = getFilePathnames(componentsDir).filter(isVueFile);
+  const { rootDir, include, exclude } = dirContext;
+  const vueFilePathnames = getFilePathnames(rootDir, {
+    include,
+    exclude,
+  }).filter(isVueFile);
 
   const fileContextMap = divideByDirectory({
     filePathnames: vueFilePathnames,
-    componentsDir,
+    rootDir,
   });
 
   const componentContextMap = new Map();

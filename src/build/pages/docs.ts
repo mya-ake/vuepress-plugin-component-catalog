@@ -22,7 +22,8 @@ export default ({
 
       context.existDoc = true;
       context.catalogPathname =
-        path.join(dirContext.catalogDir, context.link) + '.md';
+        path.join(dirContext.catalogDir, context.link).replace(/\/$/, '') +
+        '.md';
       writeFile(context.catalogPathname, docsBlock.content);
     }
   }

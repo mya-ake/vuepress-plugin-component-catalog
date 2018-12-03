@@ -4,9 +4,11 @@ export interface ProjectEnviromentContext {
 }
 
 export interface DirContext {
+  rootDir: string;
   sourceDir: string;
   configDir: string;
-  componentsDir: string;
+  include: string[];
+  exclude: string[];
   catalogDir: string;
   distDirPrefix: string;
 }
