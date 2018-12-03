@@ -1,1 +1,0 @@
-export { scanProject } from './environment';

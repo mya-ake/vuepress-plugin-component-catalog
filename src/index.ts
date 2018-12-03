@@ -1,5 +1,5 @@
 import { NAME } from './constants';
-import { scanProject } from './core';
+import { setDefaultOptions, scanProject } from './utils/environment';
 import {
   buildWebpackConfig,
   buildPlugins,
@@ -12,20 +12,21 @@ import logger from './utils/logger';
 import { CatalogOptions, VuePressOpenContext } from './types';
 
 module.exports = (options: CatalogOptions, ctx: VuePressOpenContext) => {
-  const rootDir = options.distDirPrefix || process.env.PWD;
-  if (typeof rootDir !== 'string') {
+  setDefaultOptions(options);
+  if (typeof options.rootDir !== 'string') {
     logger.error(
       new Error(
-        'Please set rootDir option. Because Automatic project scan failed.',
+        'Please set rootDir option. Because automatic project scan failed.',
       ),
     );
     process.exit(1);
   }
 
-  const environment = scanProject(rootDir);
+  const environment = scanProject(options);
 
   const dirContext = buildDirContext({
-    rootDir: rootDir as string,
+    environment,
+    rootDir: options.rootDir as string,
     include: options.include,
     exclude: options.exclude,
     distDirPrefix: options.distDirPrefix,

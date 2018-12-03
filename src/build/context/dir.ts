@@ -1,15 +1,24 @@
 import path from 'path';
 
-import { DirContext, VuePressOpenContext } from './../../types';
+import {
+  DirContext,
+  VuePressOpenContext,
+  ProjectEnviromentContext,
+} from './../../types';
 import { DIST_DEFAULT_PREFIX } from './../../constants';
 
+const defaultExclude = ['**/node_modules/**', 'node_modules', 'dist'];
+const nuxtExclude = ['.nuxt'];
+
 export default ({
+  environment,
   rootDir,
   include = [],
   exclude = [],
   distDirPrefix,
   ctx,
 }: {
+  environment: ProjectEnviromentContext;
   rootDir: string;
   include?: string | string[];
   exclude?: string | string[];
@@ -22,7 +31,11 @@ export default ({
   const prefix = distDirPrefix || DIST_DEFAULT_PREFIX;
   include = Array.isArray(include) ? include : [include];
   exclude = Array.isArray(exclude) ? exclude : [exclude];
-  exclude.push('**/node_modules/**', 'node_modules');
+  exclude.push(...defaultExclude);
+
+  if (environment.nuxt) {
+    exclude.push(...nuxtExclude);
+  }
 
   return {
     rootDir,

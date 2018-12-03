@@ -6,4 +6,10 @@ export interface CatalogOptions {
   exclude?: string | string[];
   distDirPrefix?: string;
   alias?: StringMap;
+  vueCli?: {
+    configPath?: string;
+  };
+  nuxt?: {
+    configPath?: string;
+  };
 }
