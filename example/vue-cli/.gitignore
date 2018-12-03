@@ -4,6 +4,7 @@ dist
 
 # catalog
 __catalog__
+.catalog
 
 # local env files
 .env.local
