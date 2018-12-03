@@ -61,20 +61,22 @@ export const buildLink = ({
   const slug = camelToHyphen(name);
   const pathnameList = relativePathname.split('/');
   pathnameList.pop();
-  return `/${path.join(distDirPrefix, ...pathnameList, slug)}`;
+  return `/${path.join(distDirPrefix, ...pathnameList, slug)}/`;
 };
 
 export default ({
   dirContext,
 }: {
   dirContext: DirContext;
-}): Map<string, ComponentContext> => {
+}): Map<string, ComponentContext[]> => {
   const { componentsDir } = dirContext;
   const vueFilePathnames = getFilePathnames(componentsDir).filter(isVueFile);
+
   const fileContextMap = divideByDirectory({
     filePathnames: vueFilePathnames,
     componentsDir,
   });
+
   const componentContextMap = new Map();
   for (const [dirName, fileContexts] of fileContextMap.entries()) {
     const componentContexts = fileContexts.map(fileContext => {
@@ -91,5 +93,6 @@ export default ({
     });
     componentContextMap.set(dirName, componentContexts);
   }
+
   return componentContextMap;
 };

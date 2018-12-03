@@ -6,7 +6,6 @@ import { ProjectEnviromentContext } from './../../types';
 export default (config: any, environment: ProjectEnviromentContext) => {
   // Ignore docs blocks when building VuePress
   const loaderPath = path.resolve(__dirname, '..', '..', 'through-loader.js');
-  console.log(loaderPath);
   config.module
     .rule('docs')
     .oneOf('docs')

@@ -7,3 +7,9 @@ export interface VuePressOpenContext {
   base: string;
   writeTemp: string;
 }
+
+export interface VuePressPage {
+  path: string;
+  filePath?: string;
+  content?: string;
+}

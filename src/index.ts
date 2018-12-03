@@ -7,6 +7,8 @@ import {
   buildPlugins,
   buildDirContext,
   buildComponentContextMap,
+  buildDocs,
+  buildPages,
 } from './build';
 import logger from './utils/logger';
 import { CatalogOptions, VuePressOpenContext } from './types';
@@ -27,7 +29,8 @@ module.exports = (options: CatalogOptions, ctx: VuePressOpenContext) => {
   });
 
   const componentContextMap = buildComponentContextMap({ dirContext });
-  console.log(componentContextMap);
+
+  buildDocs({ componentContextMap, dirContext });
 
   return {
     name: NAME,
@@ -35,5 +38,6 @@ module.exports = (options: CatalogOptions, ctx: VuePressOpenContext) => {
     chainWebpack: config => {
       buildWebpackConfig(config, environment);
     },
+    additionalPages: buildPages({ componentContextMap }),
   };
 };

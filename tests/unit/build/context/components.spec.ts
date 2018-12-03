@@ -58,7 +58,7 @@ describe('build/context/components', () => {
       const relativePathname = '/atoms/TestComponent.vue';
       const distDirPrefix = 'components';
       const link = buildLink({ name, relativePathname, distDirPrefix });
-      expect(link).toBe('/components/atoms/test-component');
+      expect(link).toBe('/components/atoms/test-component/');
     });
   });
 });
