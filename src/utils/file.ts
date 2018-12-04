@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import rimraf from 'rimraf';
 import minimatch from 'minimatch';
 
 export const existPathname = (pathname: string): boolean => {
@@ -124,4 +125,8 @@ export const extractFileName = (pathname: string): string | null => {
 
 export const extractExtension = (pathname: string): string | null => {
   return pathname.split('.').pop() || null;
+};
+
+export const removeDir = (dirPathname: string) => {
+  rimraf.sync(dirPathname);
 };
