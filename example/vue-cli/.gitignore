@@ -3,8 +3,7 @@ node_modules
 dist
 
 # catalog
-__catalog__
-.catalog
+**/.vuepress/.catalog
 
 # local env files
 .env.local
