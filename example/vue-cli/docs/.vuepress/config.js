@@ -23,8 +23,8 @@ module.exports = {
 
   plugins: [
     [
-      // 'vuepress-plugin-component-catalog',
-      require(path.resolve(PROJECT_DIR, '..', '..', 'dist', 'index.js')),
+      'vuepress-plugin-component-catalog',
+      // require(path.resolve(PROJECT_DIR, '..', '..', 'dist', 'index.js')),
       // {
         // vueCli: {  // vue cli option
         //   configPath: path.join(PROJECT_DIR, 'vue.config.js'),
