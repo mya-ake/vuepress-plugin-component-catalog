@@ -13,3 +13,8 @@ export interface VuePressPage {
   filePath?: string;
   content?: string;
 }
+
+export interface VuePressComponent {
+  name: string;
+  path: string;
+}
