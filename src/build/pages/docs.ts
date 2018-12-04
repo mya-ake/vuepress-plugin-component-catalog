@@ -17,7 +17,7 @@ export default ({
 
       const docsBlock = vueParser.getCustomBlock('docs');
       if (docsBlock === null) {
-        break;
+        continue;
       }
 
       context.existDoc = true;
