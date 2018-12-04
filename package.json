@@ -2,7 +2,7 @@
   "name": "vuepress-plugin-component-catalog",
   "description": "Generating a component catalog of Vue.js.",
   "version": "0.4.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "repository": "https://github.com/mya-ake/vuepress-plugin-component-catalog.git",
   "bugs": {
     "url": "https://github.com/mya-ake/vuepress-plugin-component-catalog/issues"
@@ -10,17 +10,28 @@
   "author": "mya-ake <make.app.ts@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "lint": "vue-cli-service lint",
+    "build:release": "run-s lint test:unit clean compile",
+    "lint": "tslint --config tslint.json 'src/**/*.ts' 'tests/**/*.ts'",
+    "lint:fix": "tslint --config tslint.json --fix 'src/**/*.ts' 'tests/**/*.ts'",
+    "compile": "tsc",
+    "clean": "rimraf dist",
+    "test:unit": "jest --config jest.config.js",
+    "test:unit:watch": "jest --config jest.config.js --watch",
     "release": "standard-version"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.1.1",
-    "@vue/cli-plugin-eslint": "^3.1.5",
-    "@vue/cli-service": "^3.1.4",
-    "@vue/eslint-config-prettier": "^4.0.1",
+    "@types/jest": "^23.3.10",
+    "@types/node": "^10.12.11",
     "babel-eslint": "^10.0.1",
-    "eslint": "^5.9.0",
-    "standard-version": "^4.4.0"
+    "jest": "^23.6.0",
+    "npm-run-all": "^4.1.5",
+    "standard-version": "^4.4.0",
+    "ts-jest": "^23.10.5",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-config-standard": "^8.0.1",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^3.2.1"
   },
   "peerDependencies": {
     "@vuepress/plugin-register-components": "^1.0.0-alpha.0",
@@ -30,11 +41,12 @@
     "@vue/component-compiler-utils": "^2.3.0",
     "chokidar": "^2.0.4",
     "consola": "^2.3.0",
-    "lodash": "^4.17.11",
+    "minimatch": "^3.0.4",
     "rimraf": "^2.6.2",
     "vue-template-compiler": "^2.5.17"
   },
   "files": [
+    "dist",
     "src"
   ],
   "keywords": [

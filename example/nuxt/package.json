@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
+    "build": "nuxt build",
     "lint": "vue-cli-service lint",
     "doc:dev": "vuepress dev docs",
     "doc:build": "vuepress build docs"

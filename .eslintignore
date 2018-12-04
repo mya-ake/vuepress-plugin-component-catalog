@@ -1,2 +1,4 @@
 node_modules
 example
+dist
+**/mocks/components/**/*

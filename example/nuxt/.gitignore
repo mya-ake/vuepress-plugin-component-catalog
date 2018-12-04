@@ -10,7 +10,7 @@ node_modules
 .nuxt
 
 # catalog
-__catalog__
+**/.vuepress/.catalog
 
 # Log files
 npm-debug.log*

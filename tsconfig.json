@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "CommonJS",
+    "declaration": true,
+    "outDir": "./dist",
+    "strict": true,
+    "importHelpers": false,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitThis": false,
+    "noImplicitAny": false,
+    "baseUrl": ".",
+    "types": ["node", "jest"],
+    "lib": ["es5", "es6", "es2015.collection", "es2017.object"]
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}
