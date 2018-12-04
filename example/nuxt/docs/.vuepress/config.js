@@ -29,8 +29,8 @@ module.exports = {
         // nuxt: {  // nuxt option
         //   configPath: path.join(PROJECT_DIR, 'nuxt.config.js'),
         // },
-        // include: ['**/components/**']  // Specify the target to create a catalog,
-        // exclude: ['**/layouts/**']  // Specify a target that does not create a catalog,
+        // include: ['**/components/**'],  // Specify the target to create a catalog
+        // exclude: ['**/layouts/**'],  // Specify a target that does not create a catalog
         // alias: { // import path alias
         //   '@': SRC_DIR,
         // },
