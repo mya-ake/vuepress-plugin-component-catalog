@@ -8,6 +8,7 @@ import {
   buildDocs,
   buildPages,
 } from './build';
+import { watchComponents } from './watch';
 import logger from './utils/logger';
 import { CatalogOptions, VuePressOpenContext } from './types';
 
@@ -36,6 +37,8 @@ module.exports = (options: CatalogOptions, ctx: VuePressOpenContext) => {
   const componentContextMap = buildComponentContextMap({ dirContext });
 
   buildDocs({ componentContextMap, dirContext });
+
+  watchComponents({ dirContext, componentContextMap });
 
   return {
     name: NAME,
