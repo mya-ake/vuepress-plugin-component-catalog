@@ -10,7 +10,7 @@
   "author": "mya-ake <make.app.ts@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build:release": "run-s lint test:unit lint compile",
+    "build:release": "run-s lint test:unit clean compile",
     "lint": "tslint --config tslint.json 'src/**/*.ts' 'tests/**/*.ts'",
     "lint:fix": "tslint --config tslint.json --fix 'src/**/*.ts' 'tests/**/*.ts'",
     "compile": "tsc",
