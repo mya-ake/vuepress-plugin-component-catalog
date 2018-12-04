@@ -4,18 +4,18 @@ import { existPathname } from './file';
 import { CatalogOptions, ProjectEnviromentContext } from '../types';
 
 export const setDefaultOptions = (options: CatalogOptions) => {
-  options.rootDir = options.rootDir || process.env.PWD;
+  options.rootDir = options.rootDir || process.cwd();
   if (!options.rootDir) {
     return;
   }
 
   const { vueCli = {}, nuxt = {} } = options;
   options.vueCli = {
-    configPath: path.join(options.rootDir as string, 'vue.config.js'),
+    configPath: path.join(options.rootDir, 'vue.config.js'),
     ...vueCli,
   };
   options.nuxt = {
-    configPath: path.join(options.rootDir as string, 'nuxt.config.js'),
+    configPath: path.join(options.rootDir, 'nuxt.config.js'),
     ...nuxt,
   };
 };

@@ -1,7 +1,7 @@
 import path from 'path';
 
 import {
-  getFilePathnames,
+  getFilePathnamesWithFilter,
   extractExtension,
   extractFileName,
 } from './../../utils/file';
@@ -70,7 +70,7 @@ export default ({
   dirContext: DirContext;
 }): Map<string, ComponentContext[]> => {
   const { rootDir, include, exclude } = dirContext;
-  const vueFilePathnames = getFilePathnames(rootDir, {
+  const vueFilePathnames = getFilePathnamesWithFilter(rootDir, {
     include,
     exclude,
   }).filter(isVueFile);

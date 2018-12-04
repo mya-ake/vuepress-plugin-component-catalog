@@ -5,10 +5,7 @@ import {
   VuePressOpenContext,
   ProjectEnviromentContext,
 } from './../../types';
-import { DIST_DEFAULT_PREFIX } from './../../constants';
-
-const defaultExclude = ['**/node_modules/**', 'node_modules', 'dist'];
-const nuxtExclude = ['.nuxt'];
+import { EXCLUDE, DIST_DEFAULT_PREFIX } from './../../constants';
 
 export default ({
   environment,
@@ -31,10 +28,10 @@ export default ({
   const prefix = distDirPrefix || DIST_DEFAULT_PREFIX;
   include = Array.isArray(include) ? include : [include];
   exclude = Array.isArray(exclude) ? exclude : [exclude];
-  exclude.push(...defaultExclude);
+  exclude.push(...EXCLUDE.DEFAULT);
 
   if (environment.nuxt) {
-    exclude.push(...nuxtExclude);
+    exclude.push(...EXCLUDE.NUXT);
   }
 
   return {

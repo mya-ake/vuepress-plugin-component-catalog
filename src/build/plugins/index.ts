@@ -1,9 +1,12 @@
-import { getDirPathnames, getFilePathnames } from './../../utils/file';
+import {
+  getDirPathnamesWithFilter,
+  getFilePathnamesWithFilter,
+} from './../../utils/file';
 import { DirContext } from 'src/types';
 
 const isIncludeVueFile = (dirPathname: string): boolean => {
   return (
-    getFilePathnames(dirPathname, {
+    getFilePathnamesWithFilter(dirPathname, {
       deep: false,
       include: ['**/*.vue', '*.vue'],
     }).length > 0
@@ -12,7 +15,7 @@ const isIncludeVueFile = (dirPathname: string): boolean => {
 
 export default ({ dirContext }: { dirContext: DirContext }) => {
   const { rootDir, include, exclude } = dirContext;
-  const dirPathnames = getDirPathnames(rootDir, {
+  const dirPathnames = getDirPathnamesWithFilter(rootDir, {
     include,
     exclude,
   }).filter(isIncludeVueFile);
