@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.0"></a>
+# [0.5.0](https://github.com/mya-ake/vuepress-plugin-component-catalog/compare/v0.4.0...v0.5.0) (2018-12-04)
+
+
+### Features
+
+* Release alpha version ([#25](https://github.com/mya-ake/vuepress-plugin-component-catalog/issues/25)) ([48b9d2f](https://github.com/mya-ake/vuepress-plugin-component-catalog/commit/48b9d2f)), closes [#12](https://github.com/mya-ake/vuepress-plugin-component-catalog/issues/12) [#12](https://github.com/mya-ake/vuepress-plugin-component-catalog/issues/12) [#12](https://github.com/mya-ake/vuepress-plugin-component-catalog/issues/12) [#12](https://github.com/mya-ake/vuepress-plugin-component-catalog/issues/12) [option#12](https://github.com/option/issues/12) [#12](https://github.com/mya-ake/vuepress-plugin-component-catalog/issues/12) [#12](https://github.com/mya-ake/vuepress-plugin-component-catalog/issues/12) [#12](https://github.com/mya-ake/vuepress-plugin-component-catalog/issues/12)
+
+
+
 <a name="0.4.0"></a>
 # [0.4.0](https://github.com/mya-ake/vuepress-plugin-component-catalog/compare/v0.3.0...v0.4.0) (2018-12-01)
 
