@@ -32,6 +32,6 @@ export default ({
     .set('~~', rootDir)
     .set('@', srcDir)
     .set('@@', rootDir)
-    .set([NUXT_DIR.ASSETS], path.join(NUXT_DIR.ASSETS))
-    .set([NUXT_DIR.STATIC], path.join(NUXT_DIR.STATIC));
+    .set([NUXT_DIR.ASSETS], path.join(srcDir, NUXT_DIR.ASSETS))
+    .set([NUXT_DIR.STATIC], path.join(srcDir, NUXT_DIR.STATIC));
 };
