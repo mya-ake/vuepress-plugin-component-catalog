@@ -10,7 +10,7 @@ import {
 } from 'src/types';
 
 const DIST_DIR = path.resolve(__dirname, '..', '..');
-const MOCK_COMPONENTS_DIR = path.join(DIST_DIR, 'mocks', 'components');
+const BUILTINS_COMPONENTS_DIR = path.join(DIST_DIR, 'builtins', 'components');
 
 const isIncludeVueFile = (dirPathname: string): boolean => {
   return (
@@ -37,7 +37,7 @@ export default ({
   // enviroment components
   const components: VuePressComponent[] = [];
   if (environment.nuxt) {
-    const nuxtDir = path.join(MOCK_COMPONENTS_DIR, 'nuxt');
+    const nuxtDir = path.join(BUILTINS_COMPONENTS_DIR, 'nuxt');
     components.push({
       name: 'nuxt-link',
       path: path.join(nuxtDir, 'nuxt-link.js'),
