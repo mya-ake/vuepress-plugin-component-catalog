@@ -9,6 +9,12 @@ export const EXCLUDE = {
     '**/dist/**',
     'dist/**',
     'dist',
+    '**/.vuepress/**',
+    '.vuepress/**',
+    '.vuepress',
+    '**/.git/**',
+    '.git/**',
+    '.git',
   ],
   NUXT: ['**/.nuxt/**', '.nuxt/**', '.nuxt'],
 };
