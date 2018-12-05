@@ -65,7 +65,7 @@ When you write a component, it will be mounted and displayed.
 
 <base-button>Smaple Button</base-button>
 
-<docs>
+</docs>
 
 <template>
   <button type="button"><slot /></button>
@@ -125,7 +125,7 @@ e.g.
 ```JavaScript
 {
   include: ['**/components/**'],
-}  
+}
 ```
 
 ### `exclude`(option)
