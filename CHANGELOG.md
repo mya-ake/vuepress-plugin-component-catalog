@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.3"></a>
+## [0.5.3](https://github.com/mya-ake/vuepress-plugin-component-catalog/compare/v0.5.2...v0.5.3) (2018-12-06)
+
+
+### Bug Fixes
+
+* Fix to update index page at hot reload ([#32](https://github.com/mya-ake/vuepress-plugin-component-catalog/issues/32)) ([f2fce4a](https://github.com/mya-ake/vuepress-plugin-component-catalog/commit/f2fce4a)), closes [#30](https://github.com/mya-ake/vuepress-plugin-component-catalog/issues/30) [#30](https://github.com/mya-ake/vuepress-plugin-component-catalog/issues/30) [#30](https://github.com/mya-ake/vuepress-plugin-component-catalog/issues/30)
+* typo of closing tag in README ([#29](https://github.com/mya-ake/vuepress-plugin-component-catalog/issues/29)) ([c6cab89](https://github.com/mya-ake/vuepress-plugin-component-catalog/commit/c6cab89))
+
+
+
 <a name="0.5.2"></a>
 ## [0.5.2](https://github.com/mya-ake/vuepress-plugin-component-catalog/compare/v0.5.1...v0.5.2) (2018-12-05)
 
