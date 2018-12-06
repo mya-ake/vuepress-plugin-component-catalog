@@ -14,7 +14,7 @@
     "noImplicitAny": false,
     "baseUrl": ".",
     "types": ["node", "jest"],
-    "lib": ["es5", "es6", "es2015.collection", "es2017.object"]
+    "lib": ["es5", "es6", "es2015.collection", "es2017.object", "es2016.array.include"]
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]

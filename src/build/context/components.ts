@@ -64,6 +64,16 @@ export const buildLink = ({
   return `/${path.join(distDirPrefix, ...pathnameList, slug)}/`;
 };
 
+const buildCatalogPathname = ({
+  dirContext,
+  link,
+}: {
+  dirContext: DirContext;
+  link: string;
+}): string => {
+  return path.join(dirContext.catalogDir, link).replace(/\/$/, '') + '.md';
+};
+
 export default ({
   dirContext,
 }: {
@@ -87,10 +97,11 @@ export default ({
         ...fileContext,
         distDirPrefix: dirContext.distDirPrefix,
       });
+      const catalogPathname = buildCatalogPathname({ dirContext, link });
       return {
         ...fileContext,
         link,
-        catalogPathname: null,
+        catalogPathname,
         existDoc: false,
       };
     });

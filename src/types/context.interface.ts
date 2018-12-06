@@ -22,6 +22,6 @@ export interface ComponentFileContext {
 
 export interface ComponentContext extends ComponentFileContext {
   link: string;
-  catalogPathname: string | null;
+  catalogPathname: string;
   existDoc: boolean;
 }
