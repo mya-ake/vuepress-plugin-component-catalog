@@ -3,7 +3,7 @@ import { ComponentContext } from './../../types';
 const buildComponentsMarkdown = (componentContexts: ComponentContext[]) => {
   return componentContexts
     .map(context => {
-      return context.existDoc
+      return context.existDocs
         ? `  - [${context.name}](${context.link})`
         : `  - ${context.name}`;
     })

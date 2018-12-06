@@ -1,7 +1,8 @@
 import { buildIndexPageMarkdown } from './index-page-builder';
+import { buildDocsPage } from './';
 import { ComponentContext, VuePressPage, DirContext } from './../../types';
 
-const buildIndexPage = ({
+export const buildIndexPage = ({
   dirContext,
   componentContextMap,
 }: {
@@ -23,10 +24,7 @@ const buildComponentPages = ({
   let pages: VuePressPage[] = [];
   for (const componentContexts of componentContextMap.values()) {
     const componentsPages = componentContexts.map(context => {
-      return {
-        path: context.link,
-        filePath: context.catalogPathname,
-      } as VuePressPage;
+      return buildDocsPage({ context });
     });
     pages = [...pages, ...componentsPages];
   }
@@ -41,7 +39,7 @@ export default ({
   componentContextMap: Map<string, ComponentContext[]>;
 }): VuePressPage[] => {
   return [
-    buildIndexPage({ dirContext, componentContextMap }),
     ...buildComponentPages({ componentContextMap }),
+    buildIndexPage({ dirContext, componentContextMap }),
   ];
 };

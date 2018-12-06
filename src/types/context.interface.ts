@@ -16,12 +16,13 @@ export interface DirContext {
 export interface ComponentFileContext {
   name: string;
   fileName: string;
+  dirName: string;
   absolutePathname: string;
   relativePathname: string;
 }
 
 export interface ComponentContext extends ComponentFileContext {
   link: string;
-  catalogPathname: string | null;
-  existDoc: boolean;
+  catalogPathname: string;
+  existDocs: boolean;
 }

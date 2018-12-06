@@ -17,6 +17,46 @@ const isVueFile = (pathname: string): boolean => {
   return extension === 'vue';
 };
 
+export const buildComponentFileContext = ({
+  rootDir,
+  absolutePathname,
+}: {
+  rootDir: string;
+  absolutePathname: string;
+}): ComponentFileContext => {
+  const relativePathname = absolutePathname.replace(rootDir, '');
+  const fileName = extractFileName(relativePathname) as string;
+  const dirName = relativePathname.replace(fileName, '');
+  const name = fileName.split('.').shift() as string;
+  return {
+    absolutePathname,
+    relativePathname,
+    dirName,
+    fileName,
+    name,
+  };
+};
+
+export const buildConmponentContext = ({
+  dirContext,
+  componentFileContext,
+}: {
+  dirContext: DirContext;
+  componentFileContext: ComponentFileContext;
+}): ComponentContext => {
+  const link = buildLink({
+    ...componentFileContext,
+    distDirPrefix: dirContext.distDirPrefix,
+  });
+  const catalogPathname = buildCatalogPathname({ dirContext, link });
+  return {
+    ...componentFileContext,
+    link,
+    catalogPathname,
+    existDocs: false,
+  };
+};
+
 export const divideByDirectory = ({
   filePathnames,
   rootDir,
@@ -26,25 +66,14 @@ export const divideByDirectory = ({
 }): Map<string, ComponentFileContext[]> => {
   const map = new Map();
   filePathnames
-    .map(pathname => {
-      const relativePathname = pathname.replace(rootDir, '');
-      const fileName = extractFileName(relativePathname) as string;
-      const dirName = relativePathname.replace(fileName, '');
-      const name = fileName.split('.').shift();
-      return {
-        absolutePathname: pathname,
-        relativePathname: pathname.replace(rootDir, ''),
-        dirName,
-        fileName,
-        name,
-      };
+    .map((pathname: string) => {
+      return buildComponentFileContext({ rootDir, absolutePathname: pathname });
     })
-    .forEach(context => {
+    .forEach((context: ComponentFileContext) => {
       const { dirName } = context;
-      delete context.dirName;
-      const pathnamesInDir = map.get(dirName) || [];
-      pathnamesInDir.push(context);
-      map.set(dirName, pathnamesInDir);
+      const contextsInDir = map.get(dirName) || [];
+      contextsInDir.push(context);
+      map.set(dirName, contextsInDir);
     });
   return map;
 };
@@ -62,6 +91,16 @@ export const buildLink = ({
   const pathnameList = relativePathname.split('/');
   pathnameList.pop();
   return `/${path.join(distDirPrefix, ...pathnameList, slug)}/`;
+};
+
+const buildCatalogPathname = ({
+  dirContext,
+  link,
+}: {
+  dirContext: DirContext;
+  link: string;
+}): string => {
+  return path.join(dirContext.catalogDir, link).replace(/\/$/, '') + '.md';
 };
 
 export default ({
@@ -82,18 +121,11 @@ export default ({
 
   const componentContextMap = new Map();
   for (const [dirName, fileContexts] of fileContextMap.entries()) {
-    const componentContexts = fileContexts.map(fileContext => {
-      const link = buildLink({
-        ...fileContext,
-        distDirPrefix: dirContext.distDirPrefix,
-      });
-      return {
-        ...fileContext,
-        link,
-        catalogPathname: null,
-        existDoc: false,
-      };
-    });
+    const componentContexts = fileContexts.map(
+      (componentFileContext: ComponentFileContext) => {
+        return buildConmponentContext({ dirContext, componentFileContext });
+      },
+    );
     componentContextMap.set(dirName, componentContexts);
   }
 

@@ -1,27 +1,68 @@
-import { readFile, writeFile } from './../utils/file';
-import { VueParser } from './../parser';
-import { WatchComponentMap } from 'src/types';
+import path from 'path';
 
-export default ({
+import { buildDocsPage, buildIndexPage } from './../build/pages';
+import {
+  WatchComponentMap,
+  DirContext,
+  ComponentContext,
+  UpdateDocsPageResult,
+  UpdateState,
+  DocsState,
+} from 'src/types';
+
+const updateIndex = ({
+  dirContext,
+  componentContextMap,
+}: {
+  dirContext: DirContext;
+  componentContextMap: Map<string, ComponentContext[]>;
+}) => {
+  buildIndexPage({ dirContext, componentContextMap });
+};
+
+const updateDocsPage = ({
   pathname,
   watchComponentMap,
 }: {
-  type: string;
   pathname: string;
   watchComponentMap: WatchComponentMap;
-}) => {
+}): UpdateDocsPageResult => {
   const context = watchComponentMap[`/${pathname}`];
-  if (!context || context.existDoc === false) {
-    return;
+  if (!context) {
+    return { state: 'none' };
   }
 
-  const source = readFile(context.absolutePathname);
-  const vueParser = new VueParser({ source, fileName: context.fileName });
+  const beforeExistDocs = context.existDocs;
+  buildDocsPage({ context });
+  const afterExistDocs = context.existDocs;
 
-  const docsBlock = vueParser.getCustomBlock('docs');
-  if (docsBlock === null) {
-    writeFile(context.catalogPathname as string, '');
+  let state: DocsState = 'none';
+  if (beforeExistDocs === false) {
+    state = afterExistDocs ? 'create' : 'none';
   } else {
-    writeFile(context.catalogPathname as string, docsBlock.content);
+    state = afterExistDocs ? 'update' : 'remove';
+  }
+  return { state };
+};
+
+export default ({
+  type,
+  pathname,
+  watchComponentMap,
+  dirContext,
+  componentContextMap,
+}: {
+  type: UpdateState;
+  pathname: string;
+  watchComponentMap: WatchComponentMap;
+  dirContext: DirContext;
+  componentContextMap: Map<string, ComponentContext[]>;
+}) => {
+  const { state } = updateDocsPage({
+    pathname,
+    watchComponentMap,
+  });
+  if (['create', 'remove'].includes(state)) {
+    updateIndex({ dirContext, componentContextMap });
   }
 };
