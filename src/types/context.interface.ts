@@ -16,6 +16,7 @@ export interface DirContext {
 export interface ComponentFileContext {
   name: string;
   fileName: string;
+  dirName: string;
   absolutePathname: string;
   relativePathname: string;
 }

@@ -23,6 +23,7 @@ describe('build/context/components', () => {
         {
           name: 'Component1',
           fileName: 'Component1.vue',
+          dirName: '/',
           absolutePathname: '/project/components/Component1.vue',
           relativePathname: '/Component1.vue',
         },
@@ -31,12 +32,14 @@ describe('build/context/components', () => {
         {
           name: 'Component2',
           fileName: 'Component2.vue',
+          dirName: '/atoms/',
           absolutePathname: '/project/components/atoms/Component2.vue',
           relativePathname: '/atoms/Component2.vue',
         },
         {
           name: 'Component3',
           fileName: 'Component3.vue',
+          dirName: '/atoms/',
           absolutePathname: '/project/components/atoms/Component3.vue',
           relativePathname: '/atoms/Component3.vue',
         },
@@ -45,6 +48,7 @@ describe('build/context/components', () => {
         {
           name: 'Component4',
           fileName: 'Component4.vue',
+          dirName: '/molecules/',
           absolutePathname: '/project/components/molecules/Component4.vue',
           relativePathname: '/molecules/Component4.vue',
         },

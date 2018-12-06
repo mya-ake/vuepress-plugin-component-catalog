@@ -19,6 +19,8 @@ const updateIndex = ({
   buildIndexPage({ dirContext, componentContextMap });
 };
 
+const updatePageForAdd = () => {};
+
 const updatePage = ({
   pathname,
   watchComponentMap,
