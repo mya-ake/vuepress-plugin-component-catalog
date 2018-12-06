@@ -1,5 +1,4 @@
-import { readFile, writeFile } from './../utils/file';
-import { VueParser } from './../parser';
+import { buildDocsPage } from './../build/pages';
 import { buildIndexPage } from './../build/pages';
 import {
   WatchComponentMap,
@@ -7,6 +6,7 @@ import {
   ComponentContext,
   UpdatePageResult,
   UpdateState,
+  DocsState,
 } from 'src/types';
 
 const updateIndex = ({
@@ -32,27 +32,17 @@ const updatePage = ({
     return { state: 'none' };
   }
 
-  const source = readFile(context.absolutePathname);
-  const vueParser = new VueParser({ source, fileName: context.fileName });
+  const beforeExistDocs = context.existDocs;
+  buildDocsPage({ context });
+  const afterExistDocs = context.existDocs;
 
-  const docsBlock = vueParser.getCustomBlock('docs');
-  if (docsBlock === null) {
-    writeFile(context.catalogPathname as string, '');
-    if (context.existDoc === true) {
-      context.existDoc = false;
-      return { state: 'remove' };
-    } else {
-      return { state: 'none' };
-    }
+  let state: DocsState = 'none';
+  if (beforeExistDocs === false) {
+    state = afterExistDocs ? 'create' : 'none';
   } else {
-    writeFile(context.catalogPathname as string, docsBlock.content);
-    if (context.existDoc === true) {
-      return { state: 'update' };
-    } else {
-      context.existDoc = true;
-      return { state: 'create' };
-    }
+    state = afterExistDocs ? 'update' : 'remove';
   }
+  return { state };
 };
 
 export default ({

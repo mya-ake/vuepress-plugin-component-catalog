@@ -6,7 +6,6 @@ import {
   buildPlugins,
   buildDirContext,
   buildComponentContextMap,
-  buildDocs,
   buildPages,
 } from './build';
 import { watchComponents } from './watch';
@@ -38,7 +37,6 @@ module.exports = (options: CatalogOptions, ctx: VuePressOpenContext) => {
   const componentContextMap = buildComponentContextMap({ dirContext });
 
   removeDir(dirContext.catalogDir);
-  buildDocs({ componentContextMap, dirContext });
 
   watchComponents({ dirContext, componentContextMap });
 

@@ -102,7 +102,7 @@ export default ({
         ...fileContext,
         link,
         catalogPathname,
-        existDoc: false,
+        existDocs: false,
       };
     });
     componentContextMap.set(dirName, componentContexts);
