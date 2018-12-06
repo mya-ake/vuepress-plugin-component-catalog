@@ -1,10 +1,11 @@
-import { buildDocsPage } from './../build/pages';
-import { buildIndexPage } from './../build/pages';
+import path from 'path';
+
+import { buildDocsPage, buildIndexPage } from './../build/pages';
 import {
   WatchComponentMap,
   DirContext,
   ComponentContext,
-  UpdatePageResult,
+  UpdateDocsPageResult,
   UpdateState,
   DocsState,
 } from 'src/types';
@@ -19,16 +20,13 @@ const updateIndex = ({
   buildIndexPage({ dirContext, componentContextMap });
 };
 
-const updatePageForAdd = () => {};
-
-const updatePage = ({
+const updateDocsPage = ({
   pathname,
   watchComponentMap,
 }: {
-  type: UpdateState;
   pathname: string;
   watchComponentMap: WatchComponentMap;
-}): UpdatePageResult => {
+}): UpdateDocsPageResult => {
   const context = watchComponentMap[`/${pathname}`];
   if (!context) {
     return { state: 'none' };
@@ -60,8 +58,7 @@ export default ({
   dirContext: DirContext;
   componentContextMap: Map<string, ComponentContext[]>;
 }) => {
-  const { state } = updatePage({
-    type,
+  const { state } = updateDocsPage({
     pathname,
     watchComponentMap,
   });

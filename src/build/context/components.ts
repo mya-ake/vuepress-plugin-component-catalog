@@ -71,9 +71,9 @@ export const divideByDirectory = ({
     })
     .forEach((context: ComponentFileContext) => {
       const { dirName } = context;
-      const pathnamesInDir = map.get(dirName) || [];
-      pathnamesInDir.push(context);
-      map.set(dirName, pathnamesInDir);
+      const contextsInDir = map.get(dirName) || [];
+      contextsInDir.push(context);
+      map.set(dirName, contextsInDir);
     });
   return map;
 };

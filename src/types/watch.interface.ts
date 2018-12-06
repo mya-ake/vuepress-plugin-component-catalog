@@ -7,6 +7,6 @@ export interface WatchComponentMap {
   [key: string]: ComponentContext;
 }
 
-export interface UpdatePageResult {
+export interface UpdateDocsPageResult {
   state: DocsState;
 }
