@@ -22,7 +22,7 @@ module.exports = {
       .oneOf('docs')
       .resourceQuery(/blockType=docs/)
       .use('through-loader')
-      .loader('vuepress-plugin-component-catalog/src/through-loader')
+      .loader('vuepress-plugin-component-catalog/dist/through-loader')
       .end();
   },
 };
