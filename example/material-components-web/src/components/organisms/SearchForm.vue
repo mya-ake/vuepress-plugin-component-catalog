@@ -19,8 +19,8 @@ In-site search component
 
 <template>
   <form class="search-form" @submit.prevent="handleSubmit">
-    <FormItem v-model="value" type="search" class="item"
-      ><span class="label">Search the site</span></FormItem
+    <FormItem v-model="value" type="search"
+      ><span>Search the site</span></FormItem
     >
     <BaseButton type="submit" raised>Search</BaseButton>
   </form>
@@ -53,17 +53,6 @@ export default {
 <style lang="scss" scoped>
 .search-form {
   display: flex;
-  align-items: flex-end;
-}
-
-.item {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-right: 8px;
-}
-
-.label {
-  text-transform: uppercase;
+  align-items: center;
 }
 </style>

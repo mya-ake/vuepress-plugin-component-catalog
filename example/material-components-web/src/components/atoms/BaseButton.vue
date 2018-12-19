@@ -91,13 +91,25 @@ export default {
     },
   },
 
+  data() {
+    return {
+      mdc: null,
+    };
+  },
+
   mounted() {
     this.initializeMDC();
   },
 
+  beforeDestroy() {
+    if (this.mdc !== null) {
+      this.mdc.destroy();
+    }
+  },
+
   methods: {
     initializeMDC() {
-      new MDCRipple(this.$refs.button);
+      this.mdc = MDCRipple.attachTo(this.$refs.button);
     },
 
     handleClick(evt) {

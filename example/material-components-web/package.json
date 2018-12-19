@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@material/button": "^0.42.0",
+    "@material/textfield": "^0.42.1",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
     "vue-uid": "^0.4.2",

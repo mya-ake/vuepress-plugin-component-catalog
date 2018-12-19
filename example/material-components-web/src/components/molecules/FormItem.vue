@@ -18,15 +18,17 @@ Form item
 </docs>
 
 <template>
-  <div class="form-item">
-    <BaseLabel :for="id" class="label" v-bind="{ [$options._scopeId]: '' }"
+  <div ref="item" class="mdc-text-field form-item">
+    <BaseInput :id="id" v-model="model" v-bind="props" />
+    <BaseLabel :for="id" v-bind="{ [$options._scopeId]: '' }"
       ><slot
     /></BaseLabel>
-    <BaseInput :id="id" v-model="model" v-bind="props" />
+    <div class="mdc-line-ripple"></div>
   </div>
 </template>
 
 <script>
+import { MDCTextField } from '@material/textfield';
 import { vueUidMixin } from 'vue-uid';
 
 import { BaseInput, BaseLabel } from '@/components/atoms';
@@ -42,6 +44,12 @@ export default {
 
   inheritAttrs: false,
 
+  data() {
+    return {
+      mdc: null,
+    };
+  },
+
   computed: {
     id() {
       return `form-item-${this.$_uid}`;
@@ -54,14 +62,33 @@ export default {
       };
     },
   },
+
+  mounted() {
+    this.initializeMDC();
+  },
+
+  beforeDestroy() {
+    if (this.mdc !== null) {
+      this.mdc.destroy();
+    }
+  },
+
+  methods: {
+    initializeMDC() {
+      this.mdc = MDCTextField.attachTo(this.$refs.item);
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.form-item {
-}
+@import '@material/textfield/mdc-text-field';
 
-.label {
-  padding: 4px 8px 4px 0;
+.form-item {
+  @include mdc-text-field-label-color($color-vue);
+  @include mdc-text-field-caret-color($color-vue);
+  @include mdc-text-field-fill-color(transparent);
+  @include mdc-text-field-hover-bottom-line-color($color-vue);
+  @include mdc-text-field-line-ripple-color($color-vue);
 }
 </style>

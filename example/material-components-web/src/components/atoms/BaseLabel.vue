@@ -18,7 +18,10 @@
 </docs>
 
 <template functional>
-  <label v-bind="data.attrs" :class="data.staticClass" class="base-label"
+  <label
+    v-bind="data.attrs"
+    :class="data.staticClass"
+    class="mdc-floating-label"
     ><slot
   /></label>
 </template>
@@ -29,11 +32,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.base-label {
-  display: inline-block;
-  color: $color-text;
-  font-size: 1rem;
-  line-height: 1;
-}
-</style>
+<style lang="scss" scoped></style>

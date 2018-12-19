@@ -688,6 +688,38 @@
     "@material/animation" "^0.41.0"
     "@material/theme" "^0.41.0"
 
+"@material/floating-label@^0.42.0":
+  version "0.42.0"
+  resolved "https://registry.yarnpkg.com/@material/floating-label/-/floating-label-0.42.0.tgz#f460d90b30acc2de83e5b3c664545b89287d61c6"
+  integrity sha512-OrPRQgFztQnH6Fj1vzvLq4LJQVUqYB6Wqu8xBnWGuR7cILnnH/gt6AN6ZGeUBITVKiwGegmvzUdSaH/VWB5IrQ==
+  dependencies:
+    "@material/animation" "^0.41.0"
+    "@material/base" "^0.41.0"
+    "@material/rtl" "^0.42.0"
+    "@material/theme" "^0.41.0"
+    "@material/typography" "^0.42.0"
+
+"@material/line-ripple@^0.41.0":
+  version "0.41.0"
+  resolved "https://registry.yarnpkg.com/@material/line-ripple/-/line-ripple-0.41.0.tgz#de499b0d1dc7f60ddbf497bcc49be76475642d1f"
+  integrity sha512-5DDIoC3d78fCLhNgle7DRFojT3D2SF+XVpUd3g6yLZmybHB7832p4bgl/qGpbIXwk1wAQA1dkUgKH5foxorjNQ==
+  dependencies:
+    "@material/animation" "^0.41.0"
+    "@material/base" "^0.41.0"
+    "@material/theme" "^0.41.0"
+
+"@material/notched-outline@^0.42.1":
+  version "0.42.1"
+  resolved "https://registry.yarnpkg.com/@material/notched-outline/-/notched-outline-0.42.1.tgz#799e90e17a3ab5004f544f057a2a769634de58db"
+  integrity sha512-4JQEIUi5Dt+wbBaITNks4vgJ1PbuHkACLMxlXGsR4gj0Pcp84IZHeMVCUdj46oJf/h4zsT9jaLiLeObGXRiSoQ==
+  dependencies:
+    "@material/animation" "^0.41.0"
+    "@material/base" "^0.41.0"
+    "@material/floating-label" "^0.42.0"
+    "@material/rtl" "^0.42.0"
+    "@material/shape" "^0.42.0"
+    "@material/theme" "^0.41.0"
+
 "@material/ripple@^0.42.0":
   version "0.42.0"
   resolved "https://registry.yarnpkg.com/@material/ripple/-/ripple-0.42.0.tgz#3ff501badfb81c76b1e51e6790217c2f32b57cdc"
@@ -706,6 +738,22 @@
   version "0.42.0"
   resolved "https://registry.yarnpkg.com/@material/shape/-/shape-0.42.0.tgz#784e117401ac5fe5f49411c34c86e62accb0f534"
   integrity sha512-E38QqeRoGLO38TOJT69rCBLJBnnXQ6Cmm/crjjl3TaLmqD17GiEJgPXzBdJ11lszBStSqR/gUXQX7P97LYruLw==
+
+"@material/textfield@^0.42.1":
+  version "0.42.1"
+  resolved "https://registry.yarnpkg.com/@material/textfield/-/textfield-0.42.1.tgz#a5565082f4f3a72a2b4017cccf7d734cc2cde202"
+  integrity sha512-cSE6GURbtqQx6paOJnTVVVZHIyJ4ZmdgXJbknYgPXu6dLsXUujxMbbAHaL/FhFtKiwuo9taa1lQaNuTkhiP6Cw==
+  dependencies:
+    "@material/animation" "^0.41.0"
+    "@material/base" "^0.41.0"
+    "@material/floating-label" "^0.42.0"
+    "@material/line-ripple" "^0.41.0"
+    "@material/notched-outline" "^0.42.1"
+    "@material/ripple" "^0.42.0"
+    "@material/rtl" "^0.42.0"
+    "@material/shape" "^0.42.0"
+    "@material/theme" "^0.41.0"
+    "@material/typography" "^0.42.0"
 
 "@material/theme@^0.41.0":
   version "0.41.0"

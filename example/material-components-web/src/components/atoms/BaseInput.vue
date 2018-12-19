@@ -18,7 +18,7 @@
 </docs>
 
 <template>
-  <input v-model="model" :type="type" class="base-input" />
+  <input v-model="model" :type="type" class="mdc-text-field__input" />
 </template>
 
 <script>
@@ -31,11 +31,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.base-input {
-  border: solid 1px $color-border;
-  border-radius: 3px;
-  padding: 4px 8px;
-  font-size: 1rem;
-}
-</style>
+<style lang="scss" scoped></style>
