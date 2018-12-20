@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { SearchForm } from '@/components/organisms';
+import { SearchForm } from '@/components';
 
 export default {
   name: 'Home',

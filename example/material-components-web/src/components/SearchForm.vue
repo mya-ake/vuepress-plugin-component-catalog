@@ -19,21 +19,18 @@ In-site search component
 
 <template>
   <form class="search-form" @submit.prevent="handleSubmit">
-    <FormItem v-model="value" type="search"
-      ><span>Search the site</span></FormItem
-    >
+    <BaseTextField v-model="value" type="search">Search the site</BaseTextField>
     <BaseButton type="submit" raised>Search</BaseButton>
   </form>
 </template>
 
 <script>
-import { BaseButton } from '@/components/atoms';
-import { FormItem } from '@/components/molecules';
+import { BaseButton, BaseTextField } from '@/components';
 
 export default {
   components: {
     BaseButton,
-    FormItem,
+    BaseTextField,
   },
 
   data() {

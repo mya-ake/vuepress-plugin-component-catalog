@@ -56,7 +56,7 @@
       'mdc-button--outlined': outlined,
       'base-button--outlined': outlined,
     }"
-    class="base-button mdc-button"
+    class="mdc-button base-button"
     @click="handleClick"
   >
     <slot />
@@ -102,14 +102,18 @@ export default {
   },
 
   beforeDestroy() {
-    if (this.mdc !== null) {
-      this.mdc.destroy();
-    }
+    this.destroyMDC();
   },
 
   methods: {
     initializeMDC() {
       this.mdc = MDCRipple.attachTo(this.$refs.button);
+    },
+
+    destroyMDC() {
+      if (this.mdc !== null) {
+        this.mdc.destroy();
+      }
     },
 
     handleClick(evt) {

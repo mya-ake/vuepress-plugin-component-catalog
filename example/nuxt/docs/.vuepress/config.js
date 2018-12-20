@@ -4,7 +4,7 @@ const PROJECT_DIR = path.join(__dirname, '..', '..')
 const SRC_DIR = path.resolve(PROJECT_DIR, 'app');
 const COMPONENTS_DIR = path.join(SRC_DIR, 'components');
 const SCSS_DIR = path.join(SRC_DIR, 'assets', 'scss');
-const AUTO_IMPORT_SASS = `
+const SASS_AUTO_IMPORTS = `
 @import "${path.join(SCSS_DIR, '_variables.scss')}";
 `;
 
@@ -18,7 +18,7 @@ module.exports = {
   },
 
   scss: {
-    data: AUTO_IMPORT_SASS,
+    data: SASS_AUTO_IMPORTS,
   },
 
   plugins: [
