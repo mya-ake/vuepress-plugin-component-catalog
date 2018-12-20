@@ -1,0 +1,34 @@
+{
+  "name": "material-components-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "doc:dev": "vuepress dev docs",
+    "doc:build": "vuepress build docs"
+  },
+  "dependencies": {
+    "@material/button": "^0.42.0",
+    "@material/textfield": "^0.42.1",
+    "vue": "^2.5.17",
+    "vue-router": "^3.0.1",
+    "vue-uid": "^0.4.2",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.2.0",
+    "@vue/cli-plugin-eslint": "^3.2.0",
+    "@vue/cli-service": "^3.2.0",
+    "@vue/eslint-config-prettier": "^4.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.8.0",
+    "eslint-plugin-vue": "^5.0.0-0",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.1",
+    "vue-template-compiler": "^2.5.17",
+    "vuepress": "^1.0.0-alpha.29",
+    "vuepress-plugin-component-catalog": "^0.5.3"
+  }
+}

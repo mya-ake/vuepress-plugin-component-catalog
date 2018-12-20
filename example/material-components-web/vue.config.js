@@ -12,6 +12,7 @@ module.exports = {
     loaderOptions: {
       sass: {
         data: SASS_AUTO_IMPORTS,
+        includePaths: ['./node_modules'],
       },
     },
   },
