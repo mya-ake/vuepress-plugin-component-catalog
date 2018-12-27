@@ -113,6 +113,13 @@ module.exports = {
 - type: `string`
 - default: `process.cwd()`
 
+### `staticDir`(option)
+
+Directory path of static resources.
+
+- type: `string`
+- deafult: `null`
+
 ### `include`(option)
 
 Specify the target to create a catalog.
