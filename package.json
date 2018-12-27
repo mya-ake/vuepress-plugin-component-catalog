@@ -39,8 +39,11 @@
   },
   "dependencies": {
     "@vue/component-compiler-utils": "^2.3.0",
+    "@vuepress/shared-utils": "^1.0.0-alpha.0",
     "chokidar": "^2.0.4",
     "consola": "^2.3.0",
+    "koa-mount": "^4.0.0",
+    "koa-static": "^5.0.0",
     "minimatch": "^3.0.4",
     "rimraf": "^2.6.2",
     "vue-template-compiler": "^2.5.17"

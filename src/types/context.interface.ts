@@ -11,6 +11,7 @@ export interface DirContext {
   exclude: string[];
   catalogDir: string;
   distDirPrefix: string;
+  staticDir: string | null;
 }
 
 export interface ComponentFileContext {
