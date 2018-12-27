@@ -4,6 +4,7 @@ import {
   DirContext,
   VuePressOpenContext,
   ProjectEnviromentContext,
+  CatalogOptions,
 } from './../../types';
 import { EXCLUDE, DIST_DEFAULT_PREFIX } from './../../constants';
 
@@ -14,6 +15,7 @@ export default ({
   exclude = [],
   distDirPrefix,
   ctx,
+  options,
 }: {
   environment: ProjectEnviromentContext;
   rootDir: string;
@@ -21,10 +23,12 @@ export default ({
   exclude?: string | string[];
   distDirPrefix?: string;
   ctx: VuePressOpenContext;
+  options: CatalogOptions;
 }): DirContext => {
   const { sourceDir } = ctx;
   const configDir = path.join(sourceDir, '.vuepress');
   const catalogDir = path.join(configDir, '.catalog');
+  let staticDir = options.staticDir || null;
   const prefix = distDirPrefix || DIST_DEFAULT_PREFIX;
   include = Array.isArray(include) ? include : [include];
   exclude = Array.isArray(exclude) ? exclude : [exclude];
@@ -32,6 +36,26 @@ export default ({
 
   if (environment.nuxt) {
     exclude.push(...EXCLUDE.NUXT);
+  }
+
+  if (staticDir === null) {
+    if (environment.vueCLI) {
+      staticDir = path.join(rootDir, 'public');
+    }
+    if (environment.nuxt && typeof options.nuxt === 'object') {
+      const nuxtConfig = require(options.nuxt.configPath as string);
+      const nuxtRootDir = ('rootDir' in nuxtConfig
+        ? nuxtConfig.rootDir
+        : rootDir
+      ).replace(/\/$/, '');
+
+      const srcDir = ('srcDir' in nuxtConfig
+        ? path.join(nuxtRootDir, nuxtConfig.srcDir)
+        : nuxtRootDir
+      ).replace(/\/$/, '');
+
+      staticDir = path.join(srcDir, 'static');
+    }
   }
 
   return {
@@ -42,5 +66,6 @@ export default ({
     configDir,
     catalogDir,
     distDirPrefix: prefix,
+    staticDir,
   };
 };

@@ -7,6 +7,7 @@ import {
   buildDirContext,
   buildComponentContextMap,
   buildPages,
+  buildStatic,
 } from './build';
 import { watchComponents } from './watch';
 import logger from './utils/logger';
@@ -32,6 +33,7 @@ module.exports = (options: CatalogOptions, ctx: VuePressOpenContext) => {
     exclude: options.exclude,
     distDirPrefix: options.distDirPrefix,
     ctx,
+    options,
   });
 
   const componentContextMap = buildComponentContextMap({ dirContext });
@@ -47,5 +49,6 @@ module.exports = (options: CatalogOptions, ctx: VuePressOpenContext) => {
       buildWebpackConfig({ config, options, environment, dirContext });
     },
     additionalPages: buildPages({ dirContext, componentContextMap }),
+    ...buildStatic({ ctx, dirContext }),
   };
 };
