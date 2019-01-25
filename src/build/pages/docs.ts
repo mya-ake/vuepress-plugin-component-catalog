@@ -1,5 +1,5 @@
-import { readFile, writeFile } from 'src/utils/file';
-import { VueParser } from 'src/parser';
+import { readFile, writeFile } from './../../utils/file';
+import { VueParser } from './../../parser';
 import { ComponentContext, VuePressPage } from 'src/types';
 
 export default ({ context }: { context: ComponentContext }): VuePressPage => {
