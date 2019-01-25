@@ -1,6 +1,6 @@
-import { readFile, writeFile } from './../../utils/file';
-import { VueParser } from './../../parser';
-import { ComponentContext, VuePressPage } from './../../types';
+import { readFile, writeFile } from 'src/utils/file';
+import { VueParser } from 'src/parser';
+import { ComponentContext, VuePressPage } from 'src/types';
 
 export default ({ context }: { context: ComponentContext }): VuePressPage => {
   const source = readFile(context.absolutePathname);

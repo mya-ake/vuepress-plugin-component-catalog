@@ -1,7 +1,7 @@
 import path from 'path';
 
-import { NUXT_DIR } from './../../constants';
-import { CatalogOptions, DirContext } from './../../types';
+import { NUXT_DIR } from 'src/constants';
+import { CatalogOptions, DirContext } from 'src/types';
 
 export default ({
   config,

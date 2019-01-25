@@ -1,7 +1,7 @@
 import path from 'path';
 
 import { existPathname } from './file';
-import { CatalogOptions, ProjectEnviromentContext } from '../types';
+import { CatalogOptions, ProjectEnviromentContext } from 'src/types';
 
 export const setDefaultOptions = (options: CatalogOptions) => {
   options.rootDir = options.rootDir || process.cwd();

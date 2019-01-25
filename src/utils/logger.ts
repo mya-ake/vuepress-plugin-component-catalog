@@ -1,6 +1,6 @@
 import Consola from 'consola';
 
-import { NAME } from './../constants';
+import { NAME } from 'src/constants';
 
 // @ts-ignore: TS2339
 const logger = Consola.create({

@@ -1,7 +1,4 @@
-import {
-  divideByDirectory,
-  buildLink,
-} from './../../../../src/build/context/components';
+import { divideByDirectory, buildLink } from 'src/build/context/components';
 
 describe('build/context/components', () => {
   describe('divideByDirectory function', () => {

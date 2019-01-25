@@ -1,6 +1,6 @@
 import { buildIndexPageMarkdown } from './index-page-builder';
 import { buildDocsPage } from './';
-import { ComponentContext, VuePressPage, DirContext } from './../../types';
+import { ComponentContext, VuePressPage, DirContext } from 'src/types';
 
 export const buildIndexPage = ({
   dirContext,
