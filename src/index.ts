@@ -1,6 +1,5 @@
 import { NAME } from './constants';
 import { setDefaultOptions, scanProject } from './utils/environment';
-import { removeDir } from './utils/file';
 import {
   buildWebpackConfig,
   buildPlugins,
@@ -37,8 +36,6 @@ module.exports = (options: CatalogOptions, ctx: VuePressOpenContext) => {
   });
 
   const componentContextMap = buildComponentContextMap({ dirContext });
-
-  removeDir(dirContext.catalogDir);
 
   watchComponents({ dirContext, componentContextMap });
 

@@ -126,7 +126,3 @@ export const extractFileName = (pathname: string): string | null => {
 export const extractExtension = (pathname: string): string | null => {
   return pathname.split('.').pop() || null;
 };
-
-export const removeDir = (dirPathname: string) => {
-  rimraf.sync(dirPathname);
-};
