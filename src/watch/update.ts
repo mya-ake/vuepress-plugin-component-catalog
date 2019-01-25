@@ -1,6 +1,6 @@
 import path from 'path';
 
-import { buildDocsPage, buildIndexPage } from 'src/build/pages';
+import { buildDocsPage, buildIndexPage } from './../build/pages';
 import {
   WatchComponentMap,
   DirContext,

@@ -1,6 +1,6 @@
 import path from 'path';
 
-import { NUXT_DIR } from 'src/constants';
+import { NUXT_DIR } from './../../constants';
 import { CatalogOptions, DirContext } from 'src/types';
 
 export default ({

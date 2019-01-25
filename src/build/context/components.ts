@@ -4,8 +4,8 @@ import {
   getFilePathnamesWithFilter,
   extractExtension,
   extractFileName,
-} from 'src/utils/file';
-import { camelToHyphen } from 'src/utils/common';
+} from './../../utils/file';
+import { camelToHyphen } from './../../utils/common';
 import { ComponentFileContext, ComponentContext, DirContext } from 'src/types';
 
 const isVueFile = (pathname: string): boolean => {

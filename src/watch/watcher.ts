@@ -1,12 +1,7 @@
 import chokidar from 'chokidar';
 
 import update from './update';
-import {
-  DirContext,
-  ComponentContext,
-  WatchComponentMap,
-  UpdateState,
-} from 'src/types';
+import { DirContext, ComponentContext, WatchComponentMap } from 'src/types';
 
 const buildWatchContextMap = ({
   componentContextMap,

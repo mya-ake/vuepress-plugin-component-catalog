@@ -6,7 +6,7 @@ import {
   ProjectEnviromentContext,
   CatalogOptions,
 } from 'src/types';
-import { EXCLUDE, DIST_DEFAULT_PREFIX } from 'src/constants';
+import { EXCLUDE, DIST_DEFAULT_PREFIX } from './../../constants';
 
 export default ({
   environment,
