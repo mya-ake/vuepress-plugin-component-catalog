@@ -27,7 +27,7 @@ export default ({
 }): DirContext => {
   const { sourceDir } = ctx;
   const configDir = path.join(sourceDir, '.vuepress');
-  const catalogDir = path.join(configDir, '.catalog');
+  const catalogDir = path.join(ctx.tempPath, '.catalog');
   let staticDir = options.staticDir || null;
   const prefix = distDirPrefix || DIST_DEFAULT_PREFIX;
   include = Array.isArray(include) ? include : [include];
