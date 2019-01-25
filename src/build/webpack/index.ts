@@ -6,7 +6,7 @@ import {
   ProjectEnviromentContext,
   CatalogOptions,
   DirContext,
-} from './../../types';
+} from 'src/types';
 
 export default ({
   config,

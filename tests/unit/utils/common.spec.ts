@@ -1,4 +1,4 @@
-import { camelToHyphen } from './../../../src/utils/common';
+import { camelToHyphen } from 'src/utils/common';
 
 describe('utils/common', () => {
   describe('camelToHyphen function', () => {

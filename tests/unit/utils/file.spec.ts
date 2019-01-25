@@ -1,4 +1,4 @@
-import { isMatchPathname } from './../../../src/utils/file';
+import { isMatchPathname } from 'src/utils/file';
 
 describe('utils/file', () => {
   describe('minimatch function', () => {

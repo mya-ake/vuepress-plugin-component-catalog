@@ -2,7 +2,7 @@ import path from 'path';
 import {
   getDirPathnamesWithFilter,
   getFilePathnamesWithFilter,
-} from './../../utils/file';
+} from 'src/utils/file';
 import {
   DirContext,
   ProjectEnviromentContext,

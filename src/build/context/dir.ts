@@ -5,8 +5,8 @@ import {
   VuePressOpenContext,
   ProjectEnviromentContext,
   CatalogOptions,
-} from './../../types';
-import { EXCLUDE, DIST_DEFAULT_PREFIX } from './../../constants';
+} from 'src/types';
+import { EXCLUDE, DIST_DEFAULT_PREFIX } from 'src/constants';
 
 export default ({
   environment,

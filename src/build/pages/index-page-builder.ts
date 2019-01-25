@@ -1,4 +1,4 @@
-import { ComponentContext } from './../../types';
+import { ComponentContext } from 'src/types';
 
 const buildComponentsMarkdown = (componentContexts: ComponentContext[]) => {
   return componentContexts
