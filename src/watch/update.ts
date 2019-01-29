@@ -8,16 +8,19 @@ import {
   UpdateDocsPageResult,
   UpdateState,
   DocsState,
+  CatalogOptions,
 } from 'src/types';
 
 const updateIndex = ({
   dirContext,
   componentContextMap,
+  options,
 }: {
   dirContext: DirContext;
   componentContextMap: Map<string, ComponentContext[]>;
+  options: CatalogOptions;
 }) => {
-  buildIndexPage({ dirContext, componentContextMap });
+  buildIndexPage({ dirContext, componentContextMap, options });
 };
 
 const updateDocsPage = ({
@@ -51,18 +54,20 @@ export default ({
   watchComponentMap,
   dirContext,
   componentContextMap,
+  options,
 }: {
   type: UpdateState;
   pathname: string;
   watchComponentMap: WatchComponentMap;
   dirContext: DirContext;
   componentContextMap: Map<string, ComponentContext[]>;
+  options: CatalogOptions;
 }) => {
   const { state } = updateDocsPage({
     pathname,
     watchComponentMap,
   });
   if (['create', 'remove'].includes(state)) {
-    updateIndex({ dirContext, componentContextMap });
+    updateIndex({ dirContext, componentContextMap, options });
   }
 };

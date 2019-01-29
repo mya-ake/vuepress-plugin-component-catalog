@@ -1,7 +1,12 @@
 import chokidar from 'chokidar';
 
 import update from './update';
-import { DirContext, ComponentContext, WatchComponentMap } from 'src/types';
+import {
+  DirContext,
+  ComponentContext,
+  WatchComponentMap,
+  CatalogOptions,
+} from 'src/types';
 
 const buildWatchContextMap = ({
   componentContextMap,
@@ -21,9 +26,11 @@ const buildWatchContextMap = ({
 export default ({
   dirContext,
   componentContextMap,
+  options,
 }: {
   dirContext: DirContext;
   componentContextMap: Map<string, ComponentContext[]>;
+  options: CatalogOptions;
 }) => {
   const componentWatcher = chokidar.watch(['**/*.vue'], {
     cwd: dirContext.rootDir,
@@ -40,6 +47,7 @@ export default ({
       watchComponentMap,
       dirContext,
       componentContextMap,
+      options,
     });
   });
 };

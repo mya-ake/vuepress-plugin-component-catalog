@@ -37,7 +37,7 @@ module.exports = (options: CatalogOptions, ctx: VuePressOpenContext) => {
 
   const componentContextMap = buildComponentContextMap({ dirContext });
 
-  watchComponents({ dirContext, componentContextMap });
+  watchComponents({ dirContext, componentContextMap, options });
 
   return {
     name: NAME,
@@ -45,7 +45,7 @@ module.exports = (options: CatalogOptions, ctx: VuePressOpenContext) => {
     chainWebpack: config => {
       buildWebpackConfig({ config, options, environment, dirContext });
     },
-    additionalPages: buildPages({ dirContext, componentContextMap }),
+    additionalPages: buildPages({ dirContext, componentContextMap, options }),
     ...buildStatic({ ctx, dirContext }),
   };
 };

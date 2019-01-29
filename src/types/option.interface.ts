@@ -13,4 +13,5 @@ export interface CatalogOptions {
   nuxt?: {
     configPath?: string;
   };
+  usingTheme?: Boolean;
 }

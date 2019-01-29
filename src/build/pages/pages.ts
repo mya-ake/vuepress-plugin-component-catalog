@@ -1,15 +1,27 @@
-import { buildIndexPageMarkdown } from './index-page-builder';
+import {
+  buildIndexPageMarkdown,
+  buildIndexPageMarkdownForTheme,
+} from './index-page-builder';
 import { buildDocsPage } from './';
-import { ComponentContext, VuePressPage, DirContext } from 'src/types';
+import {
+  ComponentContext,
+  VuePressPage,
+  DirContext,
+  CatalogOptions,
+} from 'src/types';
 
 export const buildIndexPage = ({
   dirContext,
   componentContextMap,
+  options,
 }: {
   dirContext: DirContext;
   componentContextMap: Map<string, ComponentContext[]>;
+  options: CatalogOptions;
 }): VuePressPage => {
-  const content = buildIndexPageMarkdown({ componentContextMap });
+  const content = options.usingTheme
+    ? buildIndexPageMarkdownForTheme({ componentContextMap })
+    : buildIndexPageMarkdown({ componentContextMap });
   return {
     path: `/${dirContext.distDirPrefix}/`,
     content,
@@ -34,12 +46,14 @@ const buildComponentPages = ({
 export default ({
   dirContext,
   componentContextMap,
+  options,
 }: {
   dirContext: DirContext;
   componentContextMap: Map<string, ComponentContext[]>;
+  options: CatalogOptions;
 }): VuePressPage[] => {
   return [
     ...buildComponentPages({ componentContextMap }),
-    buildIndexPage({ dirContext, componentContextMap }),
+    buildIndexPage({ dirContext, componentContextMap, options }),
   ];
 };
