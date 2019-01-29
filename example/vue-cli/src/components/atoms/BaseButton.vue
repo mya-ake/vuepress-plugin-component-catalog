@@ -28,6 +28,10 @@
 
 </docs>
 
+<docs-list>
+<BaseButton variation="primary">Base Button</BaseButton>
+</docs-list>
+
 <template>
   <button
     :type="type"

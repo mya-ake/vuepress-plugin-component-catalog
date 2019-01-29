@@ -17,6 +17,10 @@
 
 </docs>
 
+<docs-list>
+<BaseLabel>Label</BaseLabel>
+</docs-list>
+
 <template functional>
   <label v-bind="data.attrs" :class="data.staticClass" class="base-label"
     ><slot

@@ -17,6 +17,10 @@
 
 </docs>
 
+<docs-list>
+<BaseInput value="" type="text" />
+</docs-list>
+
 <template>
   <input v-model="model" :type="type" class="base-input" />
 </template>

@@ -17,6 +17,10 @@ In-site search component
 
 </docs>
 
+<docs-list>
+<SearchForm/>
+</docs-list>
+
 <template>
   <form class="search-form" @submit.prevent="handleSubmit">
     <FormItem v-model="value" type="search" class="item"

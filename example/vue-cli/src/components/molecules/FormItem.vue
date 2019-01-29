@@ -17,6 +17,10 @@ Form item
 
 </docs>
 
+<docs-list>
+<FormItem value="">Text</FormItem>
+</docs-list>
+
 <template>
   <div class="form-item">
     <BaseLabel :for="id" class="label" v-bind="{ [$options._scopeId]: '' }"

@@ -10,11 +10,19 @@ const SASS_AUTO_IMPORTS = `
 
 module.exports = {
   title: 'Component Catalog',
+
+  theme: 'vuepress-theme-component-catalog',
+
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Components', link: '/components/' },
-    ]
+    ],
+
+    catalogOption: {
+      include: ['**/components/**'],  // Specify the target to create a catalog
+    },
+    catalog: false,
   },
 
   scss: {
@@ -23,18 +31,19 @@ module.exports = {
 
   plugins: [
     [
-      'vuepress-plugin-component-catalog',
-      // require(path.resolve(PROJECT_DIR, '..', '..', 'dist', 'index.js')),
-      // {
+      // 'vuepress-plugin-component-catalog',
+      require(path.resolve(PROJECT_DIR, '..', '..', 'dist', 'index.js')),
+      {
+        usingTheme: true,
         // vueCli: {  // vue cli option
         //   configPath: path.join(PROJECT_DIR, 'vue.config.js'),
         // },
-        // include: ['**/components/**'],  // Specify the target to create a catalog
+        include: ['**/components/**'],  // Specify the target to create a catalog
         // exclude: ['**/views/**', '**/App.vue'],  // Specify a target that does not create a catalog
         // alias: { // import path alias
         //   '@': SRC_DIR,
         // },
-      // },
+      },
     ],
   ],
 };
