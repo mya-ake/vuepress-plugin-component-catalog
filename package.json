@@ -17,15 +17,15 @@
     "clean": "rimraf dist",
     "test:unit": "jest --config jest.config.js",
     "test:unit:watch": "jest --config jest.config.js --watch",
-    "release": "standard-version"
+    "release": "np"
   },
   "devDependencies": {
     "@types/jest": "^23.3.10",
     "@types/node": "^10.12.11",
     "babel-eslint": "^10.0.1",
     "jest": "^23.6.0",
+    "np": "^4.0.2",
     "npm-run-all": "^4.1.5",
-    "standard-version": "^4.4.0",
     "ts-jest": "^23.10.5",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.17.0",
