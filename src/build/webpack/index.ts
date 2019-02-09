@@ -1,11 +1,13 @@
 import path from 'path';
 
+import buildPlaygroundWebpackConfig from './playground';
 import buildVueCliWebpackConfig from './vue-cli';
 import buildNuxtWebpackConfig from './nuxt';
 import {
   ProjectEnviromentContext,
   CatalogOptions,
   DirContext,
+  VuePressOpenContext,
 } from 'src/types';
 
 export default ({
@@ -13,11 +15,13 @@ export default ({
   options,
   environment,
   dirContext,
+  ctx,
 }: {
   config: any;
   options: CatalogOptions;
   environment: ProjectEnviromentContext;
   dirContext: DirContext;
+  ctx: VuePressOpenContext;
 }) => {
   // Ignore docs blocks when building VuePress
   const loaderPath = path.resolve(__dirname, '..', '..', 'through-loader.js');
@@ -34,6 +38,8 @@ export default ({
   Object.entries(alias).forEach(([key, value]) => {
     config.resolve.alias.set(key, value);
   });
+
+  buildPlaygroundWebpackConfig({ config, ctx });
 
   // Setting for each environment
   if (environment.vueCLI) {

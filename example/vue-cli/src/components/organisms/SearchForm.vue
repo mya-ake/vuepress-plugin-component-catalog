@@ -10,11 +10,20 @@ In-site search component
 ## Example
 
 ```HTML
-<SearchForm @submit="handleSubmit" />
+@playground
+<template>
+  <SearchForm @submit="handleSubmit" />
+</template>
+<script>
+  export default {
+    methods: {
+      handleSubmit(value) {
+        alert(value)
+      }
+    }
+  }
+</script>
 ```
-
-<SearchForm/>
-
 </docs>
 
 <template>
