@@ -51,7 +51,7 @@ This plugin uses custom blocks of SFC.
 
 ### example
 
-```HTML
+``````HTML
 <docs>
 # Base Button
 
@@ -63,7 +63,14 @@ VuePress markdown extensions are also available.
 
 When you write a component, it will be mounted and displayed.
 
-<base-button>Smaple Button</base-button>
+<base-button>Sample Button</base-button>
+
+Code blocks tagged with `@playground` will be rendered as code examples.
+
+```html
+@playground
+<base-button variation="primary">Primary Button</base-button>
+```
 
 </docs>
 
@@ -76,7 +83,7 @@ export default {
   // ...
 }
 </script>
-```
+``````
 
 ## Options
 
