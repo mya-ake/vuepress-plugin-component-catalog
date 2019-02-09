@@ -49,9 +49,9 @@ Scan the project and complete the setup automatically.
 
 This plugin uses custom blocks of SFC.
 
-### example
+### Basic example
 
-``````HTML
+```HTML
 <docs>
 # Base Button
 
@@ -64,14 +64,6 @@ VuePress markdown extensions are also available.
 When you write a component, it will be mounted and displayed.
 
 <base-button>Sample Button</base-button>
-
-Code blocks tagged with `@playground` will be rendered as code examples.
-
-```html
-@playground
-<base-button variation="primary">Primary Button</base-button>
-```
-
 </docs>
 
 <template>
@@ -83,6 +75,64 @@ export default {
   // ...
 }
 </script>
+```
+
+### Code playgrounds
+
+Code blocks tagged with `@playground` will be rendered as code examples:
+
+``````HTML
+<docs>
+```html
+@playground
+<base-button variation="primary">Primary Button</base-button>
+```
+</docs>
+``````
+
+You can use SFC syntax in a playground example:
+
+``````HTML
+<docs>
+```html
+@playground
+<template>
+  <BaseButton @click="handleClick">Primary Button</BaseButton>
+</template>
+<script>
+  export default {
+    methods: {
+      handleClick() {
+        alert('button clicked')
+      }
+    }
+  }
+</script>
+```
+</docs>
+``````
+
+You can also use imports. Just make sure to use the correct path aliases:
+
+``````HTML
+<docs>
+```html
+@playground
+<template>
+  <BaseImage :src="logo"/>
+</template>
+<script>
+  import logo from '@/assets/logo.png'
+  export default {
+    data() {
+      return {
+        logo
+      }
+    }
+  }
+</script>
+```
+</docs>
 ``````
 
 ## Options
