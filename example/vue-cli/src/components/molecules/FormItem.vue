@@ -10,10 +10,20 @@ Form item
 ## Example
 
 ```HTML
-<FormItem v-model="value">Text</FormItem>
+@playground
+<template>
+  <FormItem v-model="value">Label</FormItem>
+</template>
+<script>
+  export default {
+    data() {
+      return {
+        value: 'value'
+      }
+    }
+  }
+</script>
 ```
-
-<FormItem value="">Text</FormItem>
 
 </docs>
 

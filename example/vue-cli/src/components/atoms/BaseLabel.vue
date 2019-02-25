@@ -10,10 +10,9 @@
 ## Example
 
 ```HTML
+@playground
 <BaseLabel>Label</BaseLabel>
 ```
-
-<BaseLabel>Label</BaseLabel>
 
 </docs>
 

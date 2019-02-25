@@ -13,18 +13,34 @@
 ### default
 
 ```HTML
+@playground
 <BaseButton>Default Button</BaseButton>
 ```
-
-<BaseButton>Default Button</BaseButton>
 
 ### primary
 
 ```HTML
+@playground
 <BaseButton variation="primary">Primary Button</BaseButton>
 ```
 
-<BaseButton variation="primary">Primary Button</BaseButton>
+### events
+
+```HTML
+@playground
+<template>
+  <BaseButton @click="handleClick">Primary Button</BaseButton>
+</template>
+<script>
+  export default {
+    methods: {
+      handleClick() {
+        alert('button clicked')
+      }
+    }
+  }
+</script>
+```
 
 </docs>
 

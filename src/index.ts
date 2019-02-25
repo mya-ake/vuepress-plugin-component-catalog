@@ -2,6 +2,7 @@ import { NAME } from './constants';
 import { setDefaultOptions, scanProject } from './utils/environment';
 import {
   buildWebpackConfig,
+  buildMarkdownConfig,
   buildPlugins,
   buildDirContext,
   buildComponentContextMap,
@@ -43,7 +44,10 @@ module.exports = (options: CatalogOptions, ctx: VuePressOpenContext) => {
     name: NAME,
     plugins: buildPlugins({ dirContext, environment }),
     chainWebpack: config => {
-      buildWebpackConfig({ config, options, environment, dirContext });
+      buildWebpackConfig({ config, options, environment, dirContext, ctx });
+    },
+    chainMarkdown(config) {
+      buildMarkdownConfig({ config, ctx });
     },
     additionalPages: buildPages({ dirContext, componentContextMap }),
     ...buildStatic({ ctx, dirContext }),

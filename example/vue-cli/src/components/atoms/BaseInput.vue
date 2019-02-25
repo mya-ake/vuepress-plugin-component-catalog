@@ -10,10 +10,9 @@
 ## Example
 
 ```HTML
+@playground
 <BaseInput v-model="value" type="text" />
 ```
-
-<BaseInput value="" type="text" />
 
 </docs>
 
