@@ -1,15 +1,25 @@
 import { join } from 'path';
 import { writeFileSync } from 'fs';
+import { createHash } from 'crypto';
 import { VuePressOpenContext } from 'src/types';
 
 const md5 = str => {
-  const crypto = require('crypto');
-  const md5 = crypto.createHash('md5');
+  const md5 = createHash('md5');
   md5.update(str);
   return md5.digest('hex').slice(-5);
 };
 
-const buildPlaygroundComponent = ({ content, tag, RE_MARKER, ctx }) => {
+const buildPlaygroundComponent = ({
+  content,
+  tag,
+  RE_MARKER,
+  ctx,
+}: {
+  content: string;
+  tag: string;
+  RE_MARKER: RegExp;
+  ctx: VuePressOpenContext;
+}) => {
   content = content
     // remove annotation
     .replace(RE_MARKER, '')
@@ -26,7 +36,15 @@ const buildPlaygroundComponent = ({ content, tag, RE_MARKER, ctx }) => {
   writeFileSync(join(ctx.tempPath, `${tag}.vue`), content);
 };
 
-const parseCode = ({ rawCode, tag, RE_MARKER }) => {
+const parseCode = ({
+  rawCode,
+  tag,
+  RE_MARKER,
+}: {
+  rawCode: string;
+  tag: string;
+  RE_MARKER: RegExp;
+}): string => {
   return rawCode
     .replace(RE_MARKER, '')
     .replace(/class="language-html(?=[\s"])/, 'class="language-vue')
@@ -48,8 +66,8 @@ export default (ctx: VuePressOpenContext, md: any) => {
     const lang = token.info.trim().toLowerCase();
 
     // lang is `html` or `vue`
-    if (lang === 'html' || lang === 'vue') {
-      let content = token.content;
+    if (['html', 'vue'].includes(lang)) {
+      const content = token.content;
       if (content.startsWith('@playground')) {
         const tag = `ComponentPlaygroundX${md5(content)}`;
         buildPlaygroundComponent({ content, tag, RE_MARKER, ctx });
