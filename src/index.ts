@@ -43,7 +43,7 @@ module.exports = (options: CatalogOptions, ctx: VuePressOpenContext) => {
   return {
     name: NAME,
     plugins: buildPlugins({ dirContext, environment }),
-    chainWebpack: config => {
+    chainWebpack(config) {
       buildWebpackConfig({ config, options, environment, dirContext, ctx });
     },
     chainMarkdown(config) {
