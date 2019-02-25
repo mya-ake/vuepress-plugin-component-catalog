@@ -31,9 +31,7 @@
 </docs>
 
 <template>
-  <div class="base-image">
-    <img :src="src" />
-  </div>
+  <div class="base-image"><img :src="src" /></div>
 </template>
 
 <script>
@@ -42,12 +40,13 @@ export default {
   props: {
     src: {
       type: String,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.base-image {}
+.base-image {
+}
 </style>
