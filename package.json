@@ -31,14 +31,14 @@
     "tslint-config-prettier": "^1.17.0",
     "tslint-config-standard": "^8.0.1",
     "tslint-plugin-prettier": "^2.0.1",
-    "typescript": "^3.2.1"
+    "typescript": "^3.3.4000"
   },
   "peerDependencies": {
     "@vuepress/plugin-register-components": "^1.0.0-alpha.0",
     "vuepress": "^1.0.0-alpha.25"
   },
   "dependencies": {
-    "@vue/component-compiler-utils": "^2.3.0",
+    "@vue/component-compiler-utils": "^2.6.0",
     "@vuepress/shared-utils": "^1.0.0-alpha.0",
     "chokidar": "^2.0.4",
     "consola": "^2.3.0",
