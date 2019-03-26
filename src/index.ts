@@ -50,6 +50,6 @@ module.exports = (options: CatalogOptions, ctx: VuePressOpenContext) => {
       buildMarkdownConfig({ config, ctx });
     },
     additionalPages: buildPages({ dirContext, componentContextMap }),
-    ...buildStatic({ ctx, dirContext }),
+    ...buildStatic({ dirContext }),
   };
 };
