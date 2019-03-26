@@ -11,7 +11,19 @@
 
 ```HTML
 @playground
-<BaseInput v-model="value" type="text" />
+<template>
+  <BaseInput v-model="value" type="text" />
+</template>
+<script>
+export default {
+  data() {
+    return {
+      value: '',
+    };
+  },
+};
+</script>
+
 ```
 
 </docs>
