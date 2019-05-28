@@ -1,0 +1,14 @@
+{
+  "name": "nuxt-docs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "doc:dev": "vuepress dev",
+    "doc:build": "vuepress build"
+  },
+  "dependencies": {
+    "vuepress": "^1.0.0-alpha.48",
+    "vuepress-plugin-component-catalog": "^0.6.7"
+  }
+}

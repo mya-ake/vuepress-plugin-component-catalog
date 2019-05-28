@@ -37,7 +37,7 @@ module.exports = {
   /*
    ** Nuxt.js modules
    */
-  modules: ['nuxt-sass-resources-loader', 'nuxt-uid-module'],
+  modules: ['@nuxtjs/style-resources', 'nuxt-uid-module'],
 
   /*
    ** Build configuration
@@ -59,5 +59,7 @@ module.exports = {
     },
   },
 
-  sassResources: ['@/assets/scss/_variables.scss'],
+  styleResources: {
+    sass: ['@/assets/scss/_variables.scss'],
+  },
 };

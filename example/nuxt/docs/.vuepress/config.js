@@ -26,11 +26,12 @@ module.exports = {
       'vuepress-plugin-component-catalog',
       // require(path.resolve(PROJECT_DIR, '..', '..', 'dist', 'index.js')),
       {
-        // nuxt: {  // nuxt option
-        //   configPath: path.join(PROJECT_DIR, 'nuxt.config.js'),
-        // },
-        // include: ['**/components/**'],  // Specify the target to create a catalog
-        // exclude: ['**/layouts/**'],  // Specify a target that does not create a catalog
+        rootDir: PROJECT_DIR,
+        nuxt: {  // nuxt option
+          configPath: path.join(PROJECT_DIR, 'nuxt.config.js'),
+        },
+        include: ['**/components/**'],  // Specify the target to create a catalog
+        exclude: ['**/layouts/**'],  // Specify a target that does not create a catalog
         // alias: { // import path alias
         //   '@': SRC_DIR,
         // },
